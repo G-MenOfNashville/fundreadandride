@@ -1,0 +1,1912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Sneaker Ball 2026 · G Men of Nashville</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700&display=swap');
+:root{
+  --gold:#C9A84C;--gold2:#E8C570;--gold3:#7A5C0F;
+  --black:#060606;--s1:#0F0F0F;--s2:#161616;--s3:#1E1E1E;--s4:#262626;--s5:#303030;
+  --text:#EDEDED;--dim:#666;--border:#252525;
+  --green:#27AE60;--red:#E74C3C;--blue:#2980B9;
+  --ca:#00C853;--purple:#8E44AD;--pp:#003087;
+  --vip:#F39C12;
+  --r:16px;--rs:10px;
+  --df:'Playfair Display',serif;--body:'Outfit',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;background:var(--black);color:var(--text);font-family:var(--body);overflow:hidden}
+
+/* SCREENS */
+.pg{display:none;position:fixed;inset:0;flex-direction:column;background:var(--black);max-width:480px;margin:0 auto;overflow:hidden}
+.pg.on{display:flex}
+.scroll{flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}
+.scroll::-webkit-scrollbar{display:none}
+.pad{padding:0 16px}
+.spacer{height:40px}
+
+/* TOPBAR */
+.topbar{display:flex;align-items:center;gap:10px;padding:50px 16px 8px;flex-shrink:0;background:var(--black)}
+.bk{width:34px;height:34px;background:var(--s2);border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;color:var(--text);flex-shrink:0;transition:.1s}
+.bk:active{opacity:.6}
+.ttl{font-size:17px;font-weight:700;flex:1;letter-spacing:-.2px}
+.act{font-size:13px;color:var(--gold);font-weight:600;cursor:pointer}
+
+/* HOME HERO */
+.hero{padding:48px 20px 0;text-align:center}
+.shoe-wrap{position:relative;display:inline-block}
+.shoe{font-size:72px;display:block;filter:drop-shadow(0 0 30px rgba(201,168,76,.4));animation:bob 3s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-12px) rotate(5deg)}}
+.htitle{font-family:var(--df);font-size:32px;color:var(--gold);margin-top:12px;line-height:1;letter-spacing:-.5px}
+.hsub{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--dim);margin-top:6px}
+.epill{display:inline-flex;align-items:center;gap:5px;background:var(--s2);border:1px solid var(--border);border-radius:30px;padding:6px 14px;font-size:11px;color:var(--dim);margin:12px auto 0}
+.epill b{color:var(--gold)}
+
+/* COUNTDOWN */
+.cdrow{display:flex;gap:8px;justify-content:center;margin:16px 0 0}
+.cdb{background:var(--s2);border:1px solid var(--border);border-radius:10px;padding:8px 12px;text-align:center;min-width:58px}
+.cdn{font-family:var(--df);font-size:24px;color:var(--gold);line-height:1}
+.cdl{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-top:3px}
+
+/* ROLE CARDS */
+.roles{display:flex;flex-direction:column;gap:8px;padding:18px 16px 0}
+.rc{background:var(--s2);border:1px solid var(--border);border-radius:18px;padding:15px;display:flex;align-items:center;gap:13px;cursor:pointer;transition:transform .12s,border-color .15s}
+.rc:active{transform:scale(.97)}
+.rc.gold{border-color:rgba(201,168,76,.35);background:linear-gradient(135deg,#120D00,#1A1200)}
+.rc.vip-card{border-color:rgba(243,156,18,.35);background:linear-gradient(135deg,#120800,#1C1000)}
+.rico{width:46px;height:46px;background:var(--s3);border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.rico.g{background:linear-gradient(135deg,#16110A,#201700);border-color:rgba(201,168,76,.3)}
+.rico.v{background:linear-gradient(135deg,#160A00,#201200);border-color:rgba(243,156,18,.3)}
+.rn{font-size:15px;font-weight:700}
+.rd{font-size:11px;color:var(--dim);margin-top:2px;line-height:1.4}
+.rpill{display:inline-block;font-size:8px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:2px 7px;border-radius:20px;margin-left:6px;vertical-align:middle}
+.rpill.gold{background:var(--gold);color:#000}
+.rpill.vip{background:var(--vip);color:#000}
+.rpill.green{background:var(--ca);color:#000}
+.chv{color:var(--dim);font-size:20px;flex-shrink:0}
+
+/* STATS */
+.statrow{display:flex;gap:6px;padding:10px 16px 0;flex-shrink:0}
+.stb{flex:1;background:var(--s2);border:1px solid var(--border);border-radius:12px;padding:10px 6px;text-align:center}
+.stn{font-family:var(--df);font-size:19px;color:var(--gold)}
+.stl{font-size:9px;color:var(--dim);margin-top:1px;letter-spacing:.3px}
+
+/* TABS */
+.tabrow{display:flex;gap:5px;padding:10px 16px 0;flex-shrink:0}
+.tb{flex:1;padding:8px 3px;border-radius:9px;text-align:center;font-size:11px;font-weight:600;cursor:pointer;background:var(--s2);color:var(--dim);border:none;font-family:var(--body);transition:all .15s}
+.tb.on{background:var(--gold);color:#000}
+.tb.on-pu{background:var(--purple);color:#fff}
+.tb.on-vip{background:var(--vip);color:#000}
+
+/* CARD LIST */
+.clist{display:flex;flex-direction:column;gap:8px;padding:10px 16px 0}
+.card{background:var(--s2);border:1px solid var(--border);border-radius:var(--r);padding:13px;cursor:pointer;transition:transform .12s}
+.card:active{transform:scale(.98)}
+.card.nc{cursor:default}
+.crow{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.ct{font-size:13px;font-weight:700}
+.cs{font-size:11px;color:var(--dim);margin-top:3px;line-height:1.5}
+.badge{padding:3px 9px;border-radius:20px;font-size:10px;font-weight:700;white-space:nowrap;flex-shrink:0}
+.b-green{background:rgba(39,174,96,.15);color:var(--green)}
+.b-blue{background:rgba(41,128,185,.15);color:var(--blue)}
+.b-gold{background:rgba(201,168,76,.15);color:var(--gold)}
+.b-red{background:rgba(231,76,60,.15);color:var(--red)}
+.b-pu{background:rgba(142,68,173,.15);color:var(--purple)}
+.b-ca{background:rgba(0,200,83,.15);color:var(--ca)}
+.b-vip{background:rgba(243,156,18,.15);color:var(--vip)}
+
+/* FORMS */
+.fsec{padding:10px 16px 0}
+.fg{margin-bottom:11px}
+.fl{font-size:9px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--dim);margin-bottom:5px;display:block}
+.fi{width:100%;background:var(--s2);border:1px solid var(--border);border-radius:var(--rs);padding:12px 13px;color:var(--text);font-size:16px;outline:none;font-family:var(--body);-webkit-appearance:none;transition:border-color .15s}
+.fi:focus{border-color:rgba(201,168,76,.5)}
+.fsel{width:100%;background:var(--s2);border:1px solid var(--border);border-radius:var(--rs);padding:12px 13px;color:var(--text);font-size:15px;outline:none;font-family:var(--body);-webkit-appearance:none}
+
+/* BUTTONS */
+.bwrap{padding:10px 16px 0;display:flex;flex-direction:column;gap:8px}
+.btn{width:100%;padding:14px;border-radius:var(--rs);font-size:14px;font-weight:700;cursor:pointer;border:none;font-family:var(--body);display:flex;align-items:center;justify-content:center;gap:7px;transition:all .12s}
+.btn:active{transform:scale(.97);opacity:.9}
+.btn-gold{background:var(--gold);color:#000}
+.btn-ghost{background:var(--s2);color:var(--text);border:1px solid var(--border)}
+.btn-red{background:rgba(231,76,60,.15);color:var(--red)}
+.btn-ca{background:var(--ca);color:#fff}
+.btn-pp{background:var(--pp);color:#fff}
+.btn-green{background:var(--green);color:#fff}
+.btn-purple{background:var(--purple);color:#fff}
+.btn-vip{background:var(--vip);color:#000}
+
+/* PIN */
+.pindots{display:flex;gap:14px;justify-content:center;margin:28px 0 22px}
+.pd{width:13px;height:13px;border-radius:50%;background:var(--s3);border:2px solid var(--border);transition:all .15s}
+.pd.on{background:var(--gold);border-color:var(--gold)}
+.pingrid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;padding:0 16px}
+.pk{height:66px;background:var(--s2);border:1px solid var(--border);border-radius:14px;font-size:24px;font-weight:300;cursor:pointer;color:var(--text);font-family:var(--body);display:flex;align-items:center;justify-content:center;transition:all .1s}
+.pk:active{background:var(--s3);transform:scale(.95)}
+
+/* TICKET VISUAL */
+.tktcard{margin:12px 16px 0;background:linear-gradient(135deg,#140D00,#1C1400);border:1px solid rgba(201,168,76,.2);border-radius:18px;padding:18px;position:relative;overflow:hidden}
+.tktcard.ap{background:linear-gradient(135deg,#0A0018,#120022);border-color:rgba(142,68,173,.3)}
+.tktcard.vip{background:linear-gradient(135deg,#140800,#1C1200);border-color:rgba(243,156,18,.4)}
+.tktcard::after{content:'👟';position:absolute;right:-10px;top:50%;transform:translateY(-50%);font-size:90px;opacity:.05;pointer-events:none}
+.tktcard.ap::after{content:'🎵'}
+.tktcard.vip::after{content:'🛋️'}
+.tkt-ev{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700}
+.tktcard.ap .tkt-ev{color:var(--purple)}
+.tktcard.vip .tkt-ev{color:var(--vip)}
+.tkt-name{font-family:var(--df);font-size:20px;color:#fff;margin:5px 0 2px;line-height:1.1}
+.tkt-email{font-size:11px;color:var(--dim)}
+.tkt-div{border:none;border-top:1px dashed rgba(201,168,76,.15);margin:11px 0}
+.tktcard.ap .tkt-div{border-top-color:rgba(142,68,173,.2)}
+.tktcard.vip .tkt-div{border-top-color:rgba(243,156,18,.25)}
+.tkt-meta{display:flex;gap:12px;flex-wrap:wrap}
+.tkt-mi label{font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim);display:block;margin-bottom:2px}
+.tkt-mi span{font-size:12px;font-weight:700;color:var(--gold)}
+.tktcard.ap .tkt-mi span{color:var(--purple)}
+.tktcard.vip .tkt-mi span{color:var(--vip)}
+.tkt-qr{width:50px;height:50px;background:#fff;border-radius:7px;display:flex;align-items:center;justify-content:center;margin-left:auto;flex-shrink:0}
+.qrpat{width:42px;height:42px;background:repeating-conic-gradient(#000 0% 25%,#fff 0% 50%) 0 0/6px 6px,repeating-conic-gradient(#000 0% 25%,#fff 0% 50%) 3px 3px/6px 6px;border-radius:2px}
+.tkt-foot{margin-top:10px;display:flex;justify-content:space-between;align-items:center}
+.tkt-venue{font-size:10px;color:#444}
+
+/* PAY METHODS */
+.pmrow{display:flex;gap:8px;margin-bottom:10px}
+.pmopt{flex:1;padding:12px 6px;border-radius:12px;border:2px solid var(--border);background:var(--s2);text-align:center;cursor:pointer;transition:all .15s}
+.pmopt.sel-ca{border-color:var(--ca);background:rgba(0,200,83,.07)}
+.pmopt.sel-pp{border-color:#009cde;background:rgba(0,156,222,.07)}
+.pmopt:active{transform:scale(.97)}
+.pmico{font-size:22px;margin-bottom:4px}
+.pmlbl{font-size:11px;font-weight:700;color:var(--dim)}
+.pmopt.sel-ca .pmlbl{color:var(--ca)}
+.pmopt.sel-pp .pmlbl{color:#009cde}
+
+/* TYPE SELECTOR */
+.tycard{background:var(--s2);border:2px solid var(--border);border-radius:var(--r);padding:13px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;transition:all .15s}
+.tycard.sel{border-color:var(--gold);background:rgba(201,168,76,.05)}
+.tycard.sel-ap{border-color:var(--purple);background:rgba(142,68,173,.05)}
+.tycard.sel-vip{border-color:var(--vip);background:rgba(243,156,18,.05)}
+.tycard:active{transform:scale(.98)}
+.tychk{width:20px;height:20px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:11px;transition:all .15s}
+.tycard.sel .tychk{background:var(--gold);border-color:var(--gold);color:#000}
+.tycard.sel-ap .tychk{background:var(--purple);border-color:var(--purple);color:#fff}
+.tycard.sel-vip .tychk{background:var(--vip);border-color:var(--vip);color:#000}
+
+/* PAY STATUS */
+.paystatus{border-radius:12px;padding:12px 14px;display:flex;gap:10px;align-items:center;margin-bottom:8px}
+.paystatus.pp{background:rgba(41,128,185,.1);border:1px solid rgba(41,128,185,.2)}
+.paystatus.ca{background:rgba(0,200,83,.1);border:1px solid rgba(0,200,83,.2)}
+
+/* SEATING MAP */
+.floor-wrap{padding:10px 16px 0}
+.floor-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
+.tbl{border-radius:12px;padding:10px 6px;text-align:center;cursor:pointer;transition:all .15s;border:2px solid transparent;position:relative}
+.tbl:active{transform:scale(.95)}
+.tbl.full{background:rgba(39,174,96,.12);border-color:rgba(39,174,96,.3)}
+.tbl.partial{background:rgba(201,168,76,.1);border-color:rgba(201,168,76,.3)}
+.tbl.empty{background:var(--s2);border-color:var(--border)}
+.tbl.selected{border-color:var(--gold)!important;box-shadow:0 0 0 1px var(--gold)}
+.tbl-num{font-size:13px;font-weight:800;color:var(--text)}
+.tbl-seats{font-size:10px;color:var(--dim);margin-top:2px}
+.tbl-dot{width:6px;height:6px;border-radius:50%;margin:4px auto 0}
+.tbl.full .tbl-dot{background:var(--green)}
+.tbl.partial .tbl-dot{background:var(--gold)}
+.tbl.empty .tbl-dot{background:var(--border)}
+.seat-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:10px}
+.seat{height:38px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;cursor:pointer;transition:all .12s;border:1px solid var(--border);background:var(--s3);color:var(--dim);text-align:center;padding:2px}
+.seat.taken{background:rgba(39,174,96,.15);border-color:rgba(39,174,96,.4);color:var(--green);font-size:9px;cursor:default}
+.seat.empty{background:var(--s3);cursor:pointer}
+.seat.empty:active{transform:scale(.93)}
+.tbl-legend{display:flex;gap:12px;margin-top:8px;font-size:10px;color:var(--dim)}
+.tbl-leg-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:4px}
+
+/* MODAL */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:999;align-items:flex-end;justify-content:center;max-width:480px;margin:0 auto}
+.overlay.on{display:flex}
+.modal{background:var(--s1);border-radius:22px 22px 0 0;padding:22px 18px 44px;width:100%;max-height:85vh;overflow-y:auto}
+.modal::-webkit-scrollbar{display:none}
+.mhandle{width:34px;height:4px;background:var(--border);border-radius:2px;margin:0 auto 20px}
+.mtitle{font-size:17px;font-weight:700;margin-bottom:6px}
+.msub{font-size:13px;color:var(--dim);margin-bottom:18px;line-height:1.5}
+
+/* SUCCESS */
+.sucpg{align-items:center;justify-content:center;text-align:center;padding:50px 22px}
+.sucico{font-size:72px;margin-bottom:18px;animation:pop .4s cubic-bezier(.36,.07,.19,.97) both}
+@keyframes pop{0%{transform:scale(0)}65%{transform:scale(1.15)}100%{transform:scale(1)}}
+.suctitle{font-family:var(--df);font-size:28px;color:var(--gold);margin-bottom:8px;line-height:1.1}
+.sucsub{font-size:13px;color:var(--dim);line-height:1.7;max-width:300px}
+
+/* ALLOTMENT */
+.allotcard{background:linear-gradient(135deg,#14100A,#1C1500);border:1px solid rgba(201,168,76,.2);border-radius:16px;padding:14px;margin:10px 16px 0}
+.allotrow{display:flex;justify-content:space-between;align-items:center}
+.allotlbl{font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--dim)}
+.allotval{font-family:var(--df);font-size:22px;color:var(--gold)}
+.allotbar{background:var(--s4);border-radius:4px;height:5px;margin-top:8px;overflow:hidden}
+.allotfill{background:linear-gradient(90deg,var(--gold3),var(--gold));height:100%;border-radius:4px;transition:width .5s}
+
+/* SOCIAL */
+.adbox{background:var(--s2);border:1px solid var(--border);border-radius:16px;padding:15px;margin:10px 16px 0}
+.adlabel{font-size:9px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--dim);margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+.copychip{background:var(--gold);color:#000;font-size:10px;font-weight:700;padding:4px 10px;border-radius:6px;cursor:pointer;border:none;font-family:var(--body)}
+.copychip:active{opacity:.8}
+.adtext{font-size:12px;line-height:1.75;color:var(--text);white-space:pre-wrap}
+.platrow{display:flex;gap:8px;padding:10px 16px 0}
+.platbtn{flex:1;padding:12px 4px;border-radius:12px;border:1px solid var(--border);background:var(--s2);text-align:center;cursor:pointer;font-family:var(--body);font-size:10px;font-weight:700;color:var(--dim);transition:all .15s}
+.platbtn:active{background:var(--s3)}
+.platico{font-size:20px;display:block;margin-bottom:3px}
+
+/* QR */
+.qrhero{display:flex;flex-direction:column;align-items:center;padding:16px 24px 0;text-align:center}
+.qrframe{background:#fff;border-radius:18px;padding:14px;margin:14px 0;box-shadow:0 0 40px rgba(201,168,76,.12)}
+
+/* EXPBAR */
+.expbar{display:flex;gap:5px;padding:8px 16px 0;flex-shrink:0}
+.expbtn{flex:1;background:var(--s2);border:1px solid var(--border);border-radius:8px;padding:7px 3px;text-align:center;font-size:10px;font-weight:700;cursor:pointer;color:var(--dim);font-family:var(--body)}
+.expbtn:active{background:var(--s3);color:var(--text)}
+
+/* RECONCILE */
+.recon-card{margin:10px 16px 0;background:linear-gradient(135deg,#0A1A0A,#0F1F0F);border:1px solid rgba(39,174,96,.25);border-radius:16px;padding:16px}
+.recon-title{font-size:13px;font-weight:700;color:var(--green);margin-bottom:6px}
+.recon-sub{font-size:12px;color:var(--dim);line-height:1.6}
+
+/* MISC */
+.slabel{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim);padding:14px 16px 0;display:block}
+.divider{height:1px;background:var(--border);margin:12px 16px 0;opacity:.4}
+.empty{text-align:center;padding:40px 20px;color:var(--dim);font-size:13px;line-height:1.6}
+.fade{animation:fi .2s ease}
+@keyframes fi{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+.tag-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.tag{display:inline-block;background:var(--s3);border:1px solid var(--border);border-radius:20px;padding:3px 10px;font-size:10px;color:var(--dim)}
+
+/* GOOGLE SHEETS STATUS */
+.gs-status{display:flex;align-items:center;gap:8px;background:var(--s2);border:1px solid var(--border);border-radius:10px;padding:10px 13px;margin:10px 16px 0;font-size:12px}
+.gs-dot{width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.gs-dot.off{background:var(--dim);animation:none}
+
+/* VIP COUCH */
+.couch-wrap{margin:10px 16px 0}
+.couch-card{background:linear-gradient(135deg,#140800,#201200);border:2px solid rgba(243,156,18,.3);border-radius:16px;padding:16px;margin-bottom:8px;position:relative;overflow:hidden}
+.couch-card::after{content:'🛋️';position:absolute;right:-8px;top:50%;transform:translateY(-50%);font-size:60px;opacity:.08}
+.couch-card.sold{opacity:.5;border-color:var(--border)}
+.couch-num{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--vip);margin-bottom:4px}
+.couch-name{font-size:15px;font-weight:700;color:var(--text)}
+.couch-sub{font-size:11px;color:var(--dim);margin-top:2px}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════ HOME ══════════════════ -->
+<div class="pg on" id="pg-home">
+  <div class="scroll">
+    <div class="hero">
+      <div class="shoe-wrap"><span class="shoe">👟</span></div>
+      <div class="htitle">Sneaker Ball 2026</div>
+      <div class="hsub">G Men of Nashville · 3rd Annual</div>
+      <div class="epill">📍 <b>The Hutton Hotel</b> · Apr 11 · 7:30 PM</div>
+      <div class="cdrow" id="cd"></div>
+    </div>
+    <div class="roles">
+      <div class="rc" onclick="openPin()">
+        <div class="rico">🛡️</div>
+        <div style="flex:1"><div class="rn">Admin <span class="rpill gold">PIN</span></div><div class="rd">Dashboard · seating · exports · reconcile</div></div>
+        <div class="chv">›</div>
+      </div>
+      <div class="rc" onclick="nav('pg-seller')">
+        <div class="rico">🤝</div>
+        <div style="flex:1"><div class="rn">Seller</div><div class="rd">Sell & assign your 10 tickets</div></div>
+        <div class="chv">›</div>
+      </div>
+      <div class="rc" onclick="nav('pg-guest')">
+        <div class="rico">🎟️</div>
+        <div style="flex:1"><div class="rn">Guest</div><div class="rd">Find my ticket · buy a seat</div></div>
+        <div class="chv">›</div>
+      </div>
+      <div class="rc gold" onclick="nav('pg-register')">
+        <div class="rico g">📋</div>
+        <div style="flex:1"><div class="rn" style="color:var(--gold)">Register as Seller <span class="rpill gold">QR</span></div><div class="rd">Scan · register · get 10 tickets instantly</div></div>
+        <div class="chv" style="color:var(--gold)">›</div>
+      </div>
+      <div class="rc vip-card" onclick="nav('pg-vip')">
+        <div class="rico v">🛋️</div>
+        <div style="flex:1"><div class="rn" style="color:var(--vip)">VIP After Party Couch <span class="rpill vip">$500</span></div><div class="rd">3 couches available · Cash App only · Analog Room</div></div>
+        <div class="chv" style="color:var(--vip)">›</div>
+      </div>
+    </div>
+    <div class="bwrap" style="margin-top:14px">
+      <button class="btn btn-ghost" onclick="nav('pg-qr')" style="font-size:13px">📲 Share Seller QR Code</button>
+      <button class="btn btn-ghost" onclick="nav('pg-social')" style="font-size:13px;border-color:rgba(142,68,173,.4);color:var(--purple)">✨ Share to Social Media</button>
+    </div>
+    <div class="spacer"></div>
+  </div>
+</div>
+
+<!-- ══════════════════ PIN ══════════════════ -->
+<div class="pg" id="pg-pin">
+  <div class="topbar"><button class="bk" onclick="nav('pg-home')">‹</button><div class="ttl">Admin Access</div></div>
+  <div style="text-align:center;padding:24px 20px 0;color:var(--dim);font-size:14px">Enter your 4-digit PIN</div>
+  <div class="pindots"><div class="pd" id="pd0"></div><div class="pd" id="pd1"></div><div class="pd" id="pd2"></div><div class="pd" id="pd3"></div></div>
+  <div class="pingrid">
+    <button class="pk" onclick="pinKey('1')">1</button><button class="pk" onclick="pinKey('2')">2</button><button class="pk" onclick="pinKey('3')">3</button>
+    <button class="pk" onclick="pinKey('4')">4</button><button class="pk" onclick="pinKey('5')">5</button><button class="pk" onclick="pinKey('6')">6</button>
+    <button class="pk" onclick="pinKey('7')">7</button><button class="pk" onclick="pinKey('8')">8</button><button class="pk" onclick="pinKey('9')">9</button>
+    <button class="pk" onclick="pinKey('C')" style="font-size:12px;color:var(--dim)">clear</button>
+    <button class="pk" onclick="pinKey('0')">0</button>
+    <button class="pk" onclick="pinKey('D')" style="font-size:20px">⌫</button>
+  </div>
+  <div id="pin-err" style="text-align:center;color:var(--red);font-size:13px;margin-top:16px;display:none">❌ Wrong PIN</div>
+</div>
+
+<!-- ══════════════════ ADMIN ══════════════════ -->
+<div class="pg" id="pg-admin">
+  <div class="topbar"><button class="bk" onclick="nav('pg-home')">‹</button><div class="ttl">Admin</div><div class="act" onclick="nav('pg-seating')">🪑 Seats</div></div>
+  <div class="statrow" id="admin-stats"></div>
+  <div class="expbar">
+    <button class="expbtn" onclick="exportCSV()">⬇ CSV</button>
+    <button class="expbtn" onclick="copyGuests()">📋 Copy</button>
+    <button class="expbtn" onclick="nav('pg-seating')" style="color:var(--gold)">🪑 Floor</button>
+    <button class="expbtn" onclick="nav('pg-reconcile')" style="color:var(--green)">⚖ Recon</button>
+    <button class="expbtn" onclick="nav('pg-social')" style="color:var(--purple)">📣 Share</button>
+  </div>
+  <div class="tabrow">
+    <button class="tb on" onclick="aTab(this,'at-tix')">Tickets</button>
+    <button class="tb" onclick="aTab(this,'at-sell')">Sellers</button>
+    <button class="tb" onclick="aTab(this,'at-guests')">Guests</button>
+    <button class="tb" onclick="aTab(this,'at-new')">+ New</button>
+  </div>
+  <div class="scroll">
+    <div id="at-tix"><div class="clist" id="a-tlist"></div></div>
+    <div id="at-sell" style="display:none"><div class="clist" id="a-slist"></div></div>
+    <div id="at-guests" style="display:none"><div class="clist" id="a-glist"></div></div>
+    <div id="at-new" style="display:none">
+      <div class="fsec">
+        <div class="fg"><label class="fl">Ticket Type</label>
+          <select class="fsel" id="new-type">
+            <option value="Individual">Individual — $150</option>
+            <option value="Table">Table of 10 — $1,250</option>
+            <option value="Sponsor">Community Sponsor — $500</option>
+            <option value="After Party">After Party — $45</option>
+            <option value="VIP Couch">VIP After Party Couch — $500</option>
+          </select>
+        </div>
+        <div class="fg"><label class="fl">Quantity</label><input class="fi" type="number" id="new-qty" value="1" min="1" max="200"></div>
+      </div>
+      <div class="bwrap"><button class="btn btn-gold" onclick="createTix()">Create Tickets ✦</button></div>
+    </div>
+    <div class="spacer"></div>
+  </div>
+</div>
+
+<!-- ══════════════════ TICKET DETAIL ══════════════════ -->
+<div class="pg" id="pg-tdetail">
+  <div class="topbar"><button class="bk" id="td-bk" onclick="nav('pg-admin')">‹</button><div class="ttl">Ticket</div></div>
+  <div class="scroll" id="td-body"></div>
+</div>
+
+<!-- ══════════════════ SEATING MAP ══════════════════ -->
+<div class="pg" id="pg-seating">
+  <div class="topbar"><button class="bk" onclick="nav('pg-admin')">‹</button><div class="ttl">Floor Plan</div><div class="act" onclick="nav('pg-reconcile')">⚖ Recon</div></div>
+  <div class="statrow" id="seat-stats"></div>
+  <div class="scroll">
+    <span class="slabel">20 Tables · 200 Seats Total</span>
+    <div class="tbl-legend pad" style="padding-top:8px">
+      <span><span class="tbl-leg-dot" style="background:var(--green)"></span>Full</span>
+      <span><span class="tbl-leg-dot" style="background:var(--gold)"></span>Partial</span>
+      <span><span class="tbl-leg-dot" style="background:var(--border)"></span>Empty</span>
+    </div>
+    <div class="floor-wrap">
+      <div class="floor-grid" id="floor-grid"></div>
+    </div>
+    <span class="slabel" id="seat-detail-label" style="display:none">Table Detail</span>
+    <div id="seat-detail"></div>
+    <div class="spacer"></div>
+  </div>
+</div>
+
+<!-- ══════════════════ RECONCILE ══════════════════ -->
+<div class="pg" id="pg-reconcile">
+  <div class="topbar"><button class="bk" onclick="nav('pg-admin')">‹</button><div class="ttl">April 10 Reconcile</div></div>
+  <div class="scroll">
+    <div class="recon-card">
+      <div class="recon-title">⚖️ Table Reconciliation</div>
+      <div class="recon-sub">Running this will:<br>
+      • Keep all full tables (10/10) exactly as-is<br>
+      • Bundle solo/partial guests into tables with open seats<br>
+      • Assign them the lowest available table number<br>
+      • No guests are moved unless their table is incomplete
+      </div>
+    </div>
+    <div id="recon-preview"></div>
+    <div class="bwrap">
+      <button class="btn btn-green" onclick="runReconcile()">⚖️ Run Reconciliation Now</button>
+      <button class="btn btn-ghost" onclick="nav('pg-admin')">Cancel</button>
+    </div>
+    <div id="recon-result"></div>
+    <div class="spacer"></div>
+  </div>
+</div>
+
+<!-- ══════════════════ REGISTER ══════════════════ -->
+<div class="pg" id="pg-register">
+  <div class="topbar"><button class="bk" onclick="nav('pg-home')">‹</button><div class="ttl">Seller Registration</div></div>
+  <div class="scroll">
+    <div style="text-align:center;padding:22px 20px 0">
+      <div style="font-size:52px;margin-bottom:10px">📋</div>
+      <div style="font-family:var(--df);font-size:26px;color:var(--gold)">Join the Team</div>
+      <div style="font-size:13px;color:var(--dim);margin-top:6px;line-height:1.6">Register as a seller and instantly receive <strong style="color:var(--gold)">10 tickets</strong> to sell for Sneaker Ball 2026.</div>
+    </div>
+    <div class="fsec">
+      <div class="fg"><label class="fl">First Name</label><input class="fi" type="text" id="reg-fn" placeholder="Marcus"></div>
+      <div class="fg"><label class="fl">Last Name</label><input class="fi" type="text" id="reg-ln" placeholder="Johnson"></div>
+      <div class="fg"><label class="fl">Organization / Lodge</label><input class="fi" type="text" id="reg-org" placeholder="Pi Gamma Chapter (optional)"></div>
+      <div class="fg"><label class="fl">Phone</label><input class="fi" type="tel" id="reg-ph" placeholder="615-000-0000"></div>
+      <div class="fg"><label class="fl">Email</label><input class="fi" type="email" id="reg-em" placeholder="you@email.com"></div>
+    </div>
+    <div class="bwrap">
+      <button class="btn btn-gold" onclick="registerSeller()">Register & Get My 10 Tickets ›</button>
+    </div>
+    <div style="text-align:center;padding:12px 16px 0;font-size:11px;color:#333">G Men of Nashville · EIN 33-2049964</div>
+    <div class="spacer"></div>
+  </div>
+</div>
+
+<!-- ══════════════════ SELLER ══════════════════ -->
+<div class="pg" id="pg-seller">
+  <div class="topbar"><button class="bk" onclick="nav('pg-home')">‹</button><div class="ttl">Seller Dashboard</div></div>
+  <div id="sell-login">
+    <div class="fsec" style="margin-top:10px">
+      <div class="fg"><label class="fl">Your Last Name</label><input class="fi" type="text" id="sl-name" placeholder="Johnson"></div>
+    </div>
+    <div class="bwrap">
+      <button class="btn btn-gold" onclick="selLogin()">Find My Tickets ›</button>
+      <button class="btn btn-ghost" onclick="nav('pg-register')">New Seller? Register Here</button>
+    </div>
+  </div>
+  <div id="sell-dash" style="display:none">
+    <div class="allotcard" id="allot-card"></div>
+    <div class="tabrow" style="margin-top:10px">
+      <button class="tb on" onclick="sTab(this,'st-avail')">Available</button>
+      <button class="tb" onclick="sTab(this,'st-sold')">Sold</button>
+    </div>
+    <div class="scroll">
+      <div id="st-avail"><div class="clist" id="s-avail"></div></div>
+      <div id="st-sold" style="display:none"><div class="clist" id="s-sold"></div></div>
+      <div class="spacer"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ ASSIGN ══════════════════ -->
+<div class="pg" id="pg-assign">
+  <div class="topbar"><button class="bk" id="as-bk" onclick="nav('pg-seller')">‹</button><div class="ttl">Assign Ticket</div></div>
+  <div class="scroll">
+    <div id="as-preview"></div>
+    <div class="fsec">
+      <div class="fg"><label class="fl">Guest First Name</label><input class="fi" type="text" id="as-fn" placeholder="First"></div>
+      <div class="fg"><label class="fl">Guest Last Name</label><input class="fi" type="text" id="as-ln" placeholder="Last"></div>
+      <div class="fg"><label class="fl">Email</label><input class="fi" type="email" id="as-em" placeholder="guest@email.com"></div>
+      <div class="fg"><label class="fl">Phone</label><input class="fi" type="tel" id="as-ph" placeholder="615-000-0000"></div>
+      <div class="fg"><label class="fl">Organization / Group</label><input class="fi" type="text" id="as-org" placeholder="Company, lodge, etc."></div>
+    </div>
+    <div class="bwrap">
+      <button class="btn btn-gold" onclick="doAssign()">Assign & Mark Sold ✓</button>
+      <button class="btn btn-ghost" id="as-cancel" onclick="nav('pg-seller')">Cancel</button>
+    </div>
+    <div class="spacer"></div>
+  </div>
+</div>
+
+<!-- ══════════════════ GUEST ══════════════════ -->
+<div class="pg" id="pg-guest">
+  <div class="topbar"><button class="bk" onclick="nav('pg-home')">‹</button><div class="ttl">My Ticket</div></div>
+  <div class="tabrow">
+    <button class="tb on" onclick="gTab(this,'gt-find')">Find Ticket</button>
+    <button class="tb" onclick="gTab(this,'gt-buy')">Buy Ticket</button>
+    <button class="tb" onclick="gTab(this,'gt-ap')" style="border-color:rgba(142,68,173,.3)">🎵 After Party</button>
+  </div>
+
+  <!-- FIND -->
+  <div id="gt-find" class="scroll">
+    <div class="fsec" style="margin-top:8px">
+      <div class="fg"><label class="fl">Your Last Name</label><input class="fi" type="text" id="g-search" placeholder="Johnson"></div>
+    </div>
+    <div class="bwrap"><button class="btn btn-gold" onclick="findTicket()">Find My Ticket 🔍</button></div>
+    <div id="g-result"></div>
+    <div class="spacer"></div>
+  </div>
+
+  <!-- BUY -->
+  <div id="gt-buy" style="display:none" class="scroll">
+    <span class="slabel">Choose Ticket</span>
+    <div style="padding:8px 16px 0">
+      <div class="tycard sel" id="ty-Individual" onclick="pickType('Individual',150)">
+        <div><div class="ct">🎟 Individual</div><div class="cs">1 seat · Dinner + Show · $150</div></div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:5px"><div style="font-size:16px;font-weight:800;color:var(--gold)">$150</div><div class="tychk">✓</div></div>
+      </div>
+      <div class="tycard" id="ty-Table" onclick="pickType('Table',1250)">
+        <div><div class="ct">🪑 Table of 10</div><div class="cs">Reserved table · Best value · $1,250</div></div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:5px"><div style="font-size:16px;font-weight:800;color:var(--gold)">$1,250</div><div class="tychk"></div></div>
+      </div>
+      <div class="tycard" id="ty-Sponsor" onclick="pickType('Sponsor',500)">
+        <div><div class="ct">💛 Community Sponsor</div><div class="cs">Support + attend · $500</div></div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:5px"><div style="font-size:16px;font-weight:800;color:var(--gold)">$500</div><div class="tychk"></div></div>
+      </div>
+    </div>
+    <span class="slabel">Your Info</span>
+    <div class="fsec" style="margin-top:6px">
+      <div class="fg"><label class="fl">Full Name</label><input class="fi" type="text" id="b-name" placeholder="Marcus Johnson"></div>
+      <div class="fg"><label class="fl">Email</label><input class="fi" type="email" id="b-email" placeholder="you@email.com"></div>
+      <div class="fg"><label class="fl">Organization / Group</label><input class="fi" type="text" id="b-org" placeholder="Optional"></div>
+    </div>
+    <span class="slabel">Payment Method</span>
+    <div style="padding:8px 16px 0">
+      <div class="pmrow">
+        <div class="pmopt sel-ca" id="pm-ca" onclick="pickPay('ca')"><div class="pmico">💚</div><div class="pmlbl">Cash App</div></div>
+        <div class="pmopt" id="pm-pp" onclick="pickPay('pp')"><div class="pmico">🔵</div><div class="pmlbl">PayPal</div></div>
+      </div>
+    </div>
+    <div class="bwrap">
+      <button class="btn btn-ca" id="btn-ca" onclick="payCA()">Pay with Cash App · $150</button>
+      <button class="btn btn-pp" id="btn-pp" style="display:none" onclick="payPP()">Pay with PayPal · $150</button>
+      <div id="pp-done" style="display:none">
+        <div class="paystatus pp"><span style="font-size:18px">✅</span><div><div style="font-size:13px;font-weight:700;color:var(--blue)">PayPal Opened</div><div style="font-size:11px;color:var(--dim);margin-top:1px">Tap below once payment is sent</div></div></div>
+        <button class="btn btn-green" onclick="confirmPay('pp')">I Paid · Get My Ticket ›</button>
+      </div>
+      <div id="ca-done" style="display:none">
+        <div class="paystatus ca"><span style="font-size:18px">💚</span><div><div style="font-size:13px;font-weight:700;color:var(--ca)">Cash App Opened</div><div style="font-size:11px;color:var(--dim);margin-top:1px">Send to $GmenofNashville then tap below</div></div></div>
+        <button class="btn btn-ca" onclick="confirmPay('ca')">I Paid · Get My Ticket ›</button>
+      </div>
+    </div>
+    <div style="text-align:center;padding:10px 16px 0;font-size:10px;color:#333">Tax-deductible donation · EIN 33-2049964</div>
+    <div class="spacer"></div>
+  </div>
+
+  <!-- AFTER PARTY -->
+  <div id="gt-ap" style="display:none" class="scroll">
+    <div style="margin:14px 16px 0;background:linear-gradient(135deg,#0A0018,#120022);border:1px solid rgba(142,68,173,.3);border-radius:18px;padding:18px;text-align:center">
+      <div style="font-size:36px;margin-bottom:8px">🎵</div>
+      <div style="font-family:var(--df);font-size:22px;color:var(--purple)">After Party</div>
+      <div style="font-size:12px;color:var(--dim);margin-top:4px">Analog Room · 9:00 PM · April 11, 2026</div>
+      <div style="font-family:var(--df);font-size:32px;color:var(--purple);margin-top:10px">$45</div>
+      <div style="font-size:11px;color:var(--dim);margin-top:4px">Cash App only · <span style="color:var(--ca);font-weight:700">$GmenofNashville</span></div>
+    </div>
+    <span class="slabel">Your Info</span>
+    <div class="fsec" style="margin-top:6px">
+      <div class="fg"><label class="fl">Full Name</label><input class="fi" type="text" id="ap-name" placeholder="Marcus Johnson"></div>
+      <div class="fg"><label class="fl">Email</label><input class="fi" type="email" id="ap-email" placeholder="you@email.com"></div>
+    </div>
+    <div class="bwrap">
+      <button class="btn btn-ca" id="btn-ap" onclick="payAP()">Open Cash App · Send $45</button>
+      <div id="ap-done" style="display:none">
+        <div class="paystatus ca"><span style="font-size:18px">💚</span><div><div style="font-size:13px;font-weight:700;color:var(--ca)">Cash App Opened</div><div style="font-size:11px;color:var(--dim)">Sent $45 to $GmenofNashville? Confirm below.</div></div></div>
+        <button class="btn btn-purple" onclick="confirmPay('ap')">Confirm · Get After Party Ticket ›</button>
+      </div>
+    </div>
+    <div class="spacer"></div>
+  </div>
+</div>
+
+<!-- ══════════════════ VIP COUCH ══════════════════ -->
+<div class="pg" id="pg-vip">
+  <div class="topbar"><button class="bk" onclick="nav('pg-home')">‹</button><div class="ttl">VIP After Party Couch</div></div>
+  <div class="scroll">
+    <div style="text-align:center;padding:20px 20px 0">
+      <div style="font-size:48px;margin-bottom:8px">🛋️</div>
+      <div style="font-family:var(--df);font-size:24px;color:var(--vip)">VIP Couch Experience</div>
+      <div style="font-size:13px;color:var(--dim);margin-top:6px;line-height:1.6">Premium reserved couch section at Analog Room.<br>After Party · 9:00 PM · April 11, 2026</div>
+      <div style="font-family:var(--df);font-size:34px;color:var(--vip);margin-top:10px">$500</div>
+      <div style="font-size:11px;color:var(--dim)">Cash App only · <span style="color:var(--ca);font-weight:700">$GmenofNashville</span></div>
+    </div>
+    <span class="slabel">3 Couches Available</span>
+    <div class="couch-wrap" id="couch-list"></div>
+    <span class="slabel">Your Info</span>
+    <div class="fsec" style="margin-top:6px">
+      <div class="fg"><label class="fl">Full Name</label><input class="fi" type="text" id="vip-name" placeholder="Marcus Johnson"></div>
+      <div class="fg"><label class="fl">Email</label><input class="fi" type="email" id="vip-email" placeholder="you@email.com"></div>
+      <div class="fg"><label class="fl">Organization / Group</label><input class="fi" type="text" id="vip-org" placeholder="Optional"></div>
+    </div>
+    <div class="bwrap">
+      <button class="btn btn-vip" id="btn-vip" onclick="payVIP()">🛋️ Reserve My VIP Couch · $500</button>
+      <div id="vip-done" style="display:none">
+        <div class="paystatus ca"><span style="font-size:18px">💚</span><div><div style="font-size:13px;font-weight:700;color:var(--ca)">Cash App Opened</div><div style="font-size:11px;color:var(--dim)">Send $500 to $GmenofNashville then confirm</div></div></div>
+        <button class="btn btn-vip" onclick="confirmVIP()">Confirm VIP Reservation ›</button>
+      </div>
+    </div>
+    <div style="text-align:center;padding:10px 16px 0;font-size:10px;color:#333">Only 3 available · First come first served</div>
+    <div class="spacer"></div>
+  </div>
+</div>
+
+<!-- ══════════════════ QR ══════════════════ -->
+<div class="pg" id="pg-qr">
+  <div class="topbar"><button class="bk" onclick="nav('pg-home')">‹</button><div class="ttl">Seller QR Code</div></div>
+  <div class="scroll">
+    <div class="qrhero">
+      <div style="font-size:13px;color:var(--dim)">Scan to register as a seller · get 10 tickets</div>
+      <div class="qrframe"><canvas id="qr-canvas" width="200" height="200"></canvas></div>
+      <div style="font-size:14px;font-weight:800;color:var(--gold)">G Men of Nashville</div>
+      <div style="font-size:12px;color:var(--dim);margin-top:3px">3rd Annual Sneaker Ball · April 11, 2026</div>
+      <div style="font-size:11px;color:var(--gold);margin-top:6px;font-weight:600" id="qr-url-lbl"></div>
+    </div>
+    <div class="bwrap">
+      <div style="display:flex;gap:8px">
+        <button class="btn btn-ghost" onclick="copyLink()" style="flex:1;font-size:12px">🔗 Copy</button>
+        <button class="btn btn-ghost" onclick="shareApp()" style="flex:1;font-size:12px">📤 Share</button>
+        <button class="btn btn-ghost" onclick="window.print()" style="flex:1;font-size:12px">🖨 Print</button>
+      </div>
+      <button class="btn btn-gold" onclick="nav('pg-register')">Register as Seller ›</button>
+    </div>
+    <div class="spacer"></div>
+  </div>
+</div>
+
+<!-- ══════════════════ SOCIAL ══════════════════ -->
+<div class="pg" id="pg-social">
+  <div class="topbar"><button class="bk" onclick="nav('pg-home')">‹</button><div class="ttl">Share to Social</div></div>
+  <div class="tabrow">
+    <button class="tb on" onclick="socTab(this,'sc-ig')">Instagram</button>
+    <button class="tb" onclick="socTab(this,'sc-fb')">Facebook</button>
+    <button class="tb" onclick="socTab(this,'sc-tw')">X / Twitter</button>
+    <button class="tb" onclick="socTab(this,'sc-txt')">Text</button>
+  </div>
+  <div class="scroll">
+    <div id="sc-ig">
+      <div class="adbox">
+        <div class="adlabel">📸 Instagram Caption <button class="copychip" onclick="cpAd('ad-ig1')">Copy</button></div>
+        <div class="adtext" id="ad-ig1">👟 Nashville, this one's for the culture AND the kids.
+
+The 3rd Annual Sneaker Ball is April 11, 2026 at The Hutton Hotel — and the energy in that room is going to be everything.
+
+Dress up. Rock your freshest kicks. Walk into a space where Black excellence and community impact share the same floor.
+
+Here's what your ticket actually does:
+📚 Funds K–3 literacy programs across Metro Nashville
+🚲 Puts bikes in the hands of kids who read the most
+🏅 Keeps 2,000+ reading milestone medals coming
+👦🏾 Serves 1,100+ students who need us to show up
+
+42,000+ books read last year. That happened because this community chose to invest.
+
+Now it's your turn.
+
+🎟 Individual — $150
+🪑 Table of 10 — $1,250
+💛 Community Sponsor — $500
+🎵 After Party @ Analog Room 9PM — $45
+🛋️ VIP After Party Couch — $500 (only 3 left!)
+
+💚 Cash App: $GmenofNashville
+
+#SneakerBall2026 #GMenOfNashville #Nashville #ReadAndRide #BlackExcellence #NashvilleEvents #SneakerCulture #LiteracyMatters #CommunityOverEverything</div>
+      </div>
+      <div class="adbox">
+        <div class="adlabel">📸 Story Script (6 Slides) <button class="copychip" onclick="cpAd('ad-ig2')">Copy</button></div>
+        <div class="adtext" id="ad-ig2">SLIDE 1 — Bold gold text on black:
+"Your sneakers never had this much purpose."
+
+SLIDE 2 — Event details:
+"3rd Annual Sneaker Ball
+Saturday, April 11, 2026
+The Hutton Hotel · Nashville, TN"
+[Add: location tag sticker]
+
+SLIDE 3 — Impact numbers:
+"Last year this community helped
+kids read 42,000+ books.
+This year we go bigger."
+[Add: a G Men graphic or kids reading photo]
+
+SLIDE 4 — Call to action:
+"Dress up. Show out.
+Do something that matters."
+[Add: poll sticker — "You coming? YES 👟 / NOT YET 🤔"]
+
+SLIDE 5 — Ticket breakdown:
+"$150 · Individual Seat
+$1,250 · Table of 10
+$45 · After Party Only
+$500 · VIP Couch (3 available!)"
+
+SLIDE 6 — Final CTA:
+"Get your ticket now 👇
+Cash App: $GmenofNashville"
+[Add: countdown timer sticker to April 11]</div>
+      </div>
+    </div>
+    <div id="sc-fb" style="display:none">
+      <div class="adbox">
+        <div class="adlabel">📘 Facebook Post <button class="copychip" onclick="cpAd('ad-fb1')">Copy</button></div>
+        <div class="adtext" id="ad-fb1">Nashville — we built something real, and April 11 is when we celebrate it together. 👟
+
+The G Men of Nashville invite you to the 3rd Annual Sneaker Ball — Saturday, April 11, 2026 at The Hutton Hotel. This is a black-tie gala. With sneakers. Because in this community, we keep it elegant AND authentic.
+
+But here's what it's really about:
+
+Every ticket sold funds the Read & Ride literacy program inside Metro Nashville Public Schools. Last year that meant:
+✅ 42,000+ books read by K–3 students
+✅ 1,132 children served across 4 schools
+✅ 64 bicycles awarded to top readers
+✅ 2,000+ reading milestone medals earned
+
+When kids see that learning leads to recognition — and their community shows up for them — everything changes. Your ticket is that change.
+
+🎟 Individual Ticket — $150
+🪑 Table of 10 — $1,250 (perfect for businesses & organizations)
+💛 Community Sponsor — $500
+🎵 After Party @ Analog Room 9PM — $45
+🛋️ VIP After Party Couch — $500 (only 3 available, act fast!)
+
+💚 Cash App: $GmenofNashville
+📞 Questions: 615.788.1379
+📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="167f787079567877657e607f7a7a73717b737838796471">[email&#160;protected]</a>
+
+Tag someone who needs to be in that room. 👇</div>
+      </div>
+    </div>
+    <div id="sc-tw" style="display:none">
+      <div class="adbox">
+        <div class="adlabel">🐦 X/Twitter Thread <button class="copychip" onclick="cpAd('ad-tw1')">Copy</button></div>
+        <div class="adtext" id="ad-tw1">1/ Nashville. April 11. The Hutton Hotel.
+
+The 3rd Annual Sneaker Ball by @GmenNashville isn't just a party — it's proof a community can dress up, show out, AND change outcomes for kids. 🧵👟
+
+2/ The receipts from last year:
+📚 42,000+ books read
+🚲 64 bikes to top readers
+🏅 2,000+ milestones earned
+👦🏾 1,132 students across 4 schools
+
+One night. Real impact.
+
+3/ 🎟 Individual — $150
+🪑 Table of 10 — $1,250
+💛 Sponsor — $500
+🎵 After Party — $45
+🛋️ VIP Couch — $500 (3 only!)
+
+4/ Pay via Cash App: $GmenofNashville
+April 11 · The Hutton Hotel
+Dinner 7:30PM · After Party 9PM @AnalogRoom
+
+5/ RT if you're coming or know someone who should be. 🔁
+Nashville doesn't wait for change. Nashville IS the change.
+#SneakerBall2026 #GMenOfNashville</div>
+      </div>
+    </div>
+    <div id="sc-txt" style="display:none">
+      <div class="adbox">
+        <div class="adlabel">💬 Quick Text <button class="copychip" onclick="cpAd('ad-txt1')">Copy</button></div>
+        <div class="adtext" id="ad-txt1">Aye! G Men Sneaker Ball is April 11 at The Hutton Hotel 👟🔥 Dress up, rock your kicks, support kids' literacy. $150 dinner / $45 after party / $500 VIP couch. Cash App $GmenofNashville. You sliding?</div>
+      </div>
+      <div class="adbox">
+        <div class="adlabel">💬 Group Chat Blast <button class="copychip" onclick="cpAd('ad-txt2')">Copy</button></div>
+        <div class="adtext" id="ad-txt2">📣 Nashville fam — mark April 11 RIGHT NOW.
+
+3rd Annual Sneaker Ball · The Hutton Hotel 👟✨
+Dinner 7:30 PM · After Party 9PM @ Analog Room
+
+🎟 Individual — $150
+🪑 Table of 10 — $1,250
+💛 Sponsor — $500
+🎵 After Party — $45
+🛋️ VIP Couch — $500 (only 3!)
+
+💚 Cash App: $GmenofNashville
+
+Every ticket funds reading programs for Nashville kids. Drop a 👟 if you're in!</div>
+      </div>
+    </div>
+    <span class="slabel">Open Platform Directly</span>
+    <div class="platrow">
+      <div class="platbtn" onclick="openPlat('ig')"><span class="platico">📸</span>Instagram</div>
+      <div class="platbtn" onclick="openPlat('fb')"><span class="platico">📘</span>Facebook</div>
+      <div class="platbtn" onclick="openPlat('tw')"><span class="platico">🐦</span>X/Twitter</div>
+      <div class="platbtn" onclick="openPlat('sms')"><span class="platico">💬</span>Text</div>
+    </div>
+    <div class="bwrap"><button class="btn btn-purple" onclick="shareApp()">📤 Native Share</button></div>
+    <div class="spacer"></div>
+  </div>
+</div>
+
+<!-- ══════════════════ SUCCESS ══════════════════ -->
+<div class="pg sucpg" id="pg-success">
+  <div class="sucico" id="suc-ico">🎉</div>
+  <div class="suctitle" id="suc-title">You're In!</div>
+  <div class="sucsub" id="suc-sub">Confirmed.</div>
+  <div id="suc-tkt" style="width:100%;margin-top:16px"></div>
+  <div id="suc-extra" style="margin-top:8px;width:100%"></div>
+  <div style="width:100%;margin-top:18px;display:flex;flex-direction:column;gap:8px">
+    <button class="btn btn-gold" id="suc-btn" onclick="nav('pg-home')">Done</button>
+    <button class="btn btn-ghost" onclick="nav('pg-social')" style="font-size:13px;border-color:rgba(142,68,173,.35);color:var(--purple)">✨ Share to Social Media</button>
+  </div>
+</div>
+
+<!-- ══════════════════ MODAL ══════════════════ -->
+<div class="overlay" id="modal">
+  <div class="modal">
+    <div class="mhandle"></div>
+    <div class="mtitle" id="m-title">Confirm</div>
+    <div class="msub" id="m-sub">Are you sure?</div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <button class="btn btn-gold" id="m-ok">Confirm</button>
+      <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ GOOGLE SHEETS MODAL ══════════════════ -->
+<div class="overlay" id="gs-modal">
+  <div class="modal">
+    <div class="mhandle"></div>
+    <div class="mtitle">Connect Google Sheets</div>
+    <div class="msub">Paste your Google Apps Script Web App URL below. Every ticket sale will auto-log to your sheet.</div>
+    <div class="fg"><label class="fl">Apps Script URL</label><input class="fi" type="url" id="gs-url-input" placeholder="https://script.google.com/macros/s/..."></div>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-top:10px">
+      <button class="btn btn-green" onclick="saveGSUrl()">Connect Sheet ✓</button>
+      <button class="btn btn-ghost" onclick="closeGSModal()">Cancel</button>
+    </div>
+    <div style="margin-top:14px;background:var(--s2);border-radius:10px;padding:12px;font-size:11px;color:var(--dim);line-height:1.7">
+      <strong style="color:var(--text)">How to set up:</strong><br>
+      1. Open Google Sheets · create a new sheet<br>
+      2. Extensions → Apps Script<br>
+      3. Paste the script from the README<br>
+      4. Deploy → Web App → Anyone can access<br>
+      5. Copy the URL and paste it above
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════
+// RDX BACKEND — PLAIN FETCH (NO CDN)
+// ═══════════════════════════════════════
+const SUPABASE_URL  = 'https://rflaxtwzevxbathlqasp.supabase.co';
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJmbGF4dHd6ZXZ4YmF0aGxxYXNwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMyMDk5NTYsImV4cCI6MjA4ODc4NTk1Nn0.-6o6y1mVse-F_Fw473dn1TuzJU9zOfcU78z3cmVR0w0';
+
+const RDX_HEADERS = {
+  'Content-Type': 'application/json',
+  'apikey': SUPABASE_ANON,
+  'Authorization': 'Bearer ' + SUPABASE_ANON,
+  'Prefer': 'return=representation'
+};
+
+async function rdxFetch(path, opts = {}) {
+  const url = SUPABASE_URL + '/rest/v1/' + path;
+  const res = await fetch(url, {
+    headers: RDX_HEADERS,
+    ...opts
+  });
+  if (!res.ok) {
+    const err = await res.text();
+    throw new Error('RDX fetch error ' + res.status + ': ' + err);
+  }
+  const text = await res.text();
+  return text ? JSON.parse(text) : null;
+}
+
+async function rdxSelect(table, params = '') {
+  return await rdxFetch(table + '?' + params);
+}
+
+async function rdxInsert(table, body) {
+  return await rdxFetch(table, {
+    method: 'POST',
+    body: JSON.stringify(body)
+  });
+}
+
+async function rdxUpdate(table, params, body) {
+  return await rdxFetch(table + '?' + params, {
+    method: 'PATCH',
+    body: JSON.stringify(body)
+  });
+}
+
+async function rdxUpsert(table, body, onConflict) {
+  return await rdxFetch(table + '?on_conflict=' + onConflict, {
+    method: 'POST',
+    headers: { ...RDX_HEADERS, 'Prefer': 'resolution=merge-duplicates,return=representation' },
+    body: JSON.stringify(body)
+  });
+}
+
+// RDX org + event IDs
+let RDX_ORG_ID   = null;
+let RDX_EVENT_ID = null;
+let RDX_READY    = false;
+
+async function rdxInit() {
+  try {
+    // Get org
+    const orgs = await rdxSelect('organizations', 'slug=eq.g-men-nashville&select=id&limit=1');
+    if (!orgs || orgs.length === 0) { console.warn('RDX: org not found'); return; }
+    RDX_ORG_ID = orgs[0].id;
+
+    // Get active event
+    const events = await rdxSelect('events', 'org_id=eq.' + RDX_ORG_ID + '&status=eq.active&select=id&order=event_date.asc&limit=1');
+    if (!events || events.length === 0) { console.warn('RDX: event not found'); return; }
+    RDX_EVENT_ID = events[0].id;
+
+    RDX_READY = true;
+    console.log('✅ RDX connected — org:', RDX_ORG_ID, 'event:', RDX_EVENT_ID);
+    await rdxLoadState();
+  } catch(e) {
+    console.warn('RDX init error:', e.message);
+  }
+}
+
+async function rdxLoadState() {
+  try {
+    // Load sellers
+    const dbSellers = await rdxSelect('sellers', 'event_id=eq.' + RDX_EVENT_ID + '&select=*');
+    if (dbSellers && dbSellers.length) {
+      sellers = dbSellers.map(s => ({
+        id: s.id,
+        fn: s.first_name,
+        ln: s.last_name,
+        org: s.organization || '',
+        ph: s.phone || '',
+        email: s.email || '',
+        allotment: s.allotment
+      }));
+      SC = sellers.length + 1;
+    }
+
+    // Load tickets with guests
+    const dbTickets = await rdxSelect('tickets', 'event_id=eq.' + RDX_EVENT_ID + '&select=*,guests(*)');
+    if (dbTickets && dbTickets.length) {
+      tickets = dbTickets.map(t => ({
+        id: t.ticket_number,
+        dbId: t.id,
+        type: 'Individual',
+        status: t.status === 'sold' ? 'sold' : 'available',
+        sellerId: t.seller_id,
+        guest: t.guests ? {
+          fn: t.guests.first_name,
+          ln: t.guests.last_name,
+          email: t.guests.email || '',
+          phone: t.guests.phone || '',
+          org: t.guests.organization || '',
+          via: t.payment_method || 'ca'
+        } : null,
+        tableId: null,
+        seatIdx: null
+      }));
+      TC = tickets.length + 1;
+    }
+
+    // Load VIP couches
+    const dbCouches = await rdxSelect('vip_couches', 'event_id=eq.' + RDX_EVENT_ID + '&select=*&order=couch_label.asc');
+    if (dbCouches && dbCouches.length) {
+      couches = dbCouches.map(c => ({
+        id: c.id,
+        label: 'Couch ' + c.couch_label,
+        guest: c.status === 'sold' ? {
+          fn: c.guest_first_name,
+          ln: c.guest_last_name,
+          phone: c.guest_phone || '',
+          email: c.guest_email || ''
+        } : null
+      }));
+    }
+
+    // Load seating
+    const dbSeating = await rdxSelect('seating', 'event_id=eq.' + RDX_EVENT_ID + '&select=*,tickets(ticket_number),guests(first_name,last_name)');
+    if (dbSeating && dbSeating.length) {
+      dbSeating.forEach(seat => {
+        const tbl = tables[seat.table_number - 1];
+        if (tbl && seat.guests) {
+          tbl.seats[seat.seat_number - 1] = {
+            fn: seat.guests.first_name,
+            ln: seat.guests.last_name,
+            ticketId: seat.tickets ? seat.tickets.ticket_number : null
+          };
+        }
+      });
+    }
+
+    console.log('✅ RDX state loaded —', tickets.length, 'tickets,', sellers.length, 'sellers');
+  } catch(e) {
+    console.warn('RDX load error:', e.message);
+  }
+}
+
+async function rdxSaveTicket(ticket, guest, payMethod) {
+  if (!RDX_READY) return null;
+  try {
+    const typeMap = {
+      'Individual': 'Individual',
+      'Table': 'Table of 10',
+      'Sponsor': 'Community Sponsor',
+      'After Party': 'After Party',
+      'VIP Couch': 'VIP After Party Couch'
+    };
+    const ttRows = await rdxSelect('ticket_types', 'event_id=eq.' + RDX_EVENT_ID + '&name=eq.' + encodeURIComponent(typeMap[ticket.type] || ticket.type) + '&select=id&limit=1');
+    const ttId = ttRows && ttRows.length ? ttRows[0].id : null;
+
+    const dbTicket = await rdxInsert('tickets', {
+      org_id: RDX_ORG_ID,
+      event_id: RDX_EVENT_ID,
+      ticket_type_id: ttId,
+      seller_id: ticket.sellerId || null,
+      ticket_number: ticket.id,
+      status: 'sold',
+      payment_method: payMethod || 'cashapp',
+      payment_confirmed: true,
+      sold_at: new Date().toISOString()
+    });
+
+    const ticketId = Array.isArray(dbTicket) ? dbTicket[0].id : dbTicket.id;
+
+    if (guest && (guest.fn || guest.ln)) {
+      await rdxInsert('guests', {
+        org_id: RDX_ORG_ID,
+        event_id: RDX_EVENT_ID,
+        ticket_id: ticketId,
+        first_name: guest.fn || '',
+        last_name: guest.ln || '',
+        email: guest.email || '',
+        phone: guest.phone || '',
+        organization: guest.org || ''
+      });
+    }
+
+    await rdxInsert('activity_log', {
+      org_id: RDX_ORG_ID,
+      event_id: RDX_EVENT_ID,
+      action: 'ticket_sold',
+      entity_type: 'ticket',
+      entity_id: ticketId,
+      details: { ticket_number: ticket.id, type: ticket.type, payment: payMethod }
+    });
+
+    return ticketId;
+  } catch(e) {
+    console.warn('RDX save ticket error:', e.message);
+    return null;
+  }
+}
+
+async function rdxSaveSeller(seller) {
+  if (!RDX_READY) return null;
+  try {
+    const data = await rdxInsert('sellers', {
+      org_id: RDX_ORG_ID,
+      event_id: RDX_EVENT_ID,
+      first_name: seller.fn,
+      last_name: seller.ln,
+      email: seller.email || '',
+      phone: seller.ph || '',
+      organization: seller.org || '',
+      allotment: 10
+    });
+    const sellerId = Array.isArray(data) ? data[0].id : data.id;
+    await rdxInsert('activity_log', {
+      org_id: RDX_ORG_ID,
+      event_id: RDX_EVENT_ID,
+      action: 'seller_registered',
+      entity_type: 'seller',
+      entity_id: sellerId,
+      details: { name: seller.fn + ' ' + seller.ln }
+    });
+    return sellerId;
+  } catch(e) {
+    console.warn('RDX save seller error:', e.message);
+    return null;
+  }
+}
+
+async function rdxSaveVIP(couchLabel, guest, payRef) {
+  if (!RDX_READY) return;
+  try {
+    const label = couchLabel.replace('Couch ', '');
+    await rdxUpdate('vip_couches', 'event_id=eq.' + RDX_EVENT_ID + '&couch_label=eq.' + label, {
+      status: 'sold',
+      guest_first_name: guest.fn || '',
+      guest_last_name: guest.ln || '',
+      guest_phone: guest.phone || '',
+      guest_email: guest.email || '',
+      payment_reference: payRef || '',
+      reserved_at: new Date().toISOString()
+    });
+    await rdxInsert('activity_log', {
+      org_id: RDX_ORG_ID,
+      event_id: RDX_EVENT_ID,
+      action: 'vip_sold',
+      entity_type: 'vip_couch',
+      details: { couch: couchLabel, guest: guest.fn + ' ' + guest.ln }
+    });
+  } catch(e) {
+    console.warn('RDX VIP save error:', e.message);
+  }
+}
+
+async function rdxSaveSeat(ticketId, guestId, tableNum, seatNum) {
+  if (!RDX_READY) return;
+  try {
+    const tRows = await rdxSelect('tickets', 'ticket_number=eq.' + ticketId + '&select=id&limit=1');
+    const tId = tRows && tRows.length ? tRows[0].id : null;
+    const gRows = tId ? await rdxSelect('guests', 'ticket_id=eq.' + tId + '&select=id&limit=1') : null;
+    const gId = gRows && gRows.length ? gRows[0].id : null;
+
+    await rdxUpsert('seating', {
+      org_id: RDX_ORG_ID,
+      event_id: RDX_EVENT_ID,
+      ticket_id: tId,
+      guest_id: gId,
+      table_number: tableNum,
+      seat_number: seatNum
+    }, 'event_id,table_number,seat_number');
+  } catch(e) {
+    console.warn('RDX seat save error:', e.message);
+  }
+}
+
+// Init on page load
+window.addEventListener('load', rdxInit);
+
+// ═══════════════════════════════════════
+// CONFIG
+// ═══════════════════════════════════════
+const ADMIN_PIN = '3567';
+const LIVE_URL  = 'https://G-MenOfNashville.github.io/fundreadandride/';
+const CASHAPP   = 'https://cash.app/$GmenofNashville';
+const PAYPAL    = {
+  Individual: 'https://www.paypal.com/ncp/payment/SJ7JWJW475E38',
+  Table:      'https://www.paypal.com/ncp/payment/W2SN74SVPL52G',
+  Sponsor:    'https://www.paypal.com/ncp/payment/TFFX42HSYPWT4'
+};
+const PRICES  = { Individual:150, Table:1250, Sponsor:500, 'After Party':45, 'VIP Couch':500 };
+const ICONS   = { Individual:'🎟', Table:'🪑', Sponsor:'💛', 'After Party':'🎵', 'VIP Couch':'🛋️' };
+const N_TABLES = 20, SEATS_PER_TABLE = 10;
+
+// ═══════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════
+let tickets  = [];
+let sellers  = [];
+let tables   = Array.from({length:N_TABLES},(_,i)=>({id:i+1,seats:Array(SEATS_PER_TABLE).fill(null)}));
+let couches  = [{id:1,label:'Couch A',guest:null},{id:2,label:'Couch B',guest:null},{id:3,label:'Couch C',guest:null}];
+let TC=1, SC=1;
+let activeSeller=null, assigningId=null;
+let buyType='Individual', buyPrice=150, payMethod='ca';
+let pinStr='', modalCb=null;
+let gsUrl = localStorage.getItem('gs_url')||'';
+let selectedTable = null;
+
+function mkTix(type,sellerId=null){
+  return{id:'SB'+String(TC++).padStart(3,'0'),type,status:'available',guest:null,sellerId,tableId:null,seatIdx:null};
+}
+
+// ═══════════════════════════════════════
+// NAV
+// ═══════════════════════════════════════
+function nav(id){
+  document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
+  const el=document.getElementById(id); el.classList.add('on');
+  try{el.querySelector('.scroll').scrollTop=0;}catch(e){}
+  if(id==='pg-admin')   renderAdmin();
+  if(id==='pg-seating') renderSeating();
+  if(id==='pg-qr')      renderQR();
+  if(id==='pg-vip')     renderCouches();
+  if(id==='pg-reconcile') renderReconPreview();
+}
+function openPin(){pinStr='';refreshDots();document.getElementById('pin-err').style.display='none';nav('pg-pin');}
+
+// ═══════════════════════════════════════
+// COUNTDOWN
+// ═══════════════════════════════════════
+function tick(){
+  const diff=new Date('2026-04-11T19:30:00')-new Date();
+  if(diff<=0){document.getElementById('cd').innerHTML='<div style="color:var(--gold);font-weight:800">🎉 Tonight!</div>';return;}
+  const parts=[
+    {n:Math.floor(diff/86400000),l:'Days'},
+    {n:Math.floor(diff/3600000)%24,l:'Hrs'},
+    {n:Math.floor(diff/60000)%60,l:'Min'},
+    {n:Math.floor(diff/1000)%60,l:'Sec'}
+  ];
+  document.getElementById('cd').innerHTML=parts.map(p=>`<div class="cdb"><div class="cdn">${String(p.n).padStart(2,'0')}</div><div class="cdl">${p.l}</div></div>`).join('');
+}
+tick();
+setInterval(tick,1000);
+
+// ═══════════════════════════════════════
+// PIN
+// ═══════════════════════════════════════
+function pinKey(k){
+  if(k==='C')pinStr='';
+  else if(k==='D')pinStr=pinStr.slice(0,-1);
+  else if(pinStr.length<4)pinStr+=k;
+  refreshDots();
+  if(pinStr.length===4){
+    setTimeout(()=>{
+      if(pinStr===ADMIN_PIN){pinStr='';refreshDots();nav('pg-admin');}
+      else{document.getElementById('pin-err').style.display='block';pinStr='';refreshDots();}
+    },200);
+  }
+}
+function refreshDots(){for(let i=0;i<4;i++)document.getElementById('pd'+i).classList.toggle('on',i<pinStr.length);}
+
+// ═══════════════════════════════════════
+// ADMIN
+// ═══════════════════════════════════════
+function renderAdmin(){
+  const sold=tickets.filter(t=>t.status==='sold');
+  const rev=sold.reduce((s,t)=>s+(PRICES[t.type]||0),0);
+  const vipSold=couches.filter(c=>c.guest).length;
+  document.getElementById('admin-stats').innerHTML=[
+    {n:tickets.length,l:'Tickets',c:'var(--gold)'},
+    {n:sold.length,l:'Sold',c:'var(--green)'},
+    {n:'$'+rev.toLocaleString(),l:'Revenue',c:'var(--gold)'},
+    {n:vipSold+'/3',l:'VIP',c:'var(--vip)'}
+  ].map(s=>`<div class="stb"><div class="stn" style="color:${s.c};font-size:${typeof s.n==='string'&&s.n.length>5?'14px':'19px'}">${s.n}</div><div class="stl">${s.l}</div></div>`).join('');
+  renderATix();
+}
+
+function aTab(btn,id){
+  document.querySelectorAll('#pg-admin .tb').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  ['at-tix','at-sell','at-guests','at-new'].forEach(t=>document.getElementById(t).style.display=t===id?'block':'none');
+  if(id==='at-tix')renderATix();
+  if(id==='at-sell')renderASell();
+  if(id==='at-guests')renderAGuests();
+}
+
+function renderATix(){
+  const el=document.getElementById('a-tlist');
+  if(!tickets.length){el.innerHTML='<div class="empty">No tickets yet.<br>Use + New to create some.</div>';return;}
+  el.innerHTML=tickets.map(t=>`
+    <div class="card fade" onclick="openTix('${t.id}')">
+      <div class="crow">
+        <div><div class="ct">${ICONS[t.type]||'🎟'} ${t.id}</div>
+        <div class="cs">${t.type}${t.guest?' · '+t.guest.fn+' '+t.guest.ln:''}${t.tableId?' · Table '+t.tableId:''}</div></div>
+        <div class="badge ${t.status==='sold'?'b-green':'b-blue'}">${t.status==='sold'?'✓ Sold':'Open'}</div>
+      </div>
+    </div>`).join('');
+}
+
+function renderASell(){
+  const el=document.getElementById('a-slist');
+  if(!sellers.length){el.innerHTML='<div class="empty">No sellers yet.<br>Share the QR code!</div>';return;}
+  el.innerHTML=sellers.map(s=>{
+    const myT=tickets.filter(t=>t.sellerId===s.id);
+    const sold=myT.filter(t=>t.status==='sold').length;
+    return`<div class="card nc">
+      <div class="crow"><div><div class="ct">${s.fn} ${s.ln}</div><div class="cs">${s.org||''} · ${s.email}</div></div><div class="badge b-gold">${sold}/${myT.length}</div></div>
+      <div class="allotbar" style="margin-top:8px"><div class="allotfill" style="width:${myT.length?sold/myT.length*100:0}%"></div></div>
+    </div>`;
+  }).join('');
+}
+
+function renderAGuests(){
+  const el=document.getElementById('a-glist');
+  const sold=tickets.filter(t=>t.status==='sold'&&t.guest);
+  const vip=couches.filter(c=>c.guest);
+  if(!sold.length&&!vip.length){el.innerHTML='<div class="empty">No guests yet.</div>';return;}
+  const tixHTML=sold.map(t=>`
+    <div class="card nc">
+      <div class="crow">
+        <div><div class="ct">${t.guest.fn} ${t.guest.ln}</div>
+        <div class="cs">${t.id}${t.tableId?' · Table '+t.tableId+' Seat '+(t.seatIdx+1):''} · ${t.guest.org||''} · <span style="color:${t.guest.via==='ca'?'var(--ca)':'#009cde'}">${t.guest.via==='ca'?'Cash App':'PayPal'}</span></div></div>
+        <div class="badge ${t.type==='After Party'?'b-pu':t.type==='VIP Couch'?'b-vip':'b-gold'}">${ICONS[t.type]||'🎟'}</div>
+      </div>
+    </div>`).join('');
+  const vipHTML=vip.map(c=>`
+    <div class="card nc" style="border-color:rgba(243,156,18,.2)">
+      <div class="crow">
+        <div><div class="ct">🛋️ ${c.guest.fn} ${c.guest.ln}</div>
+        <div class="cs">${c.label} · VIP Couch · Cash App</div></div>
+        <div class="badge b-vip">VIP</div>
+      </div>
+    </div>`).join('');
+  el.innerHTML=tixHTML+vipHTML;
+}
+
+function createTix(){
+  const type=document.getElementById('new-type').value;
+  const qty=parseInt(document.getElementById('new-qty').value)||1;
+  for(let i=0;i<qty;i++)tickets.push(mkTix(type));
+  showModal('✅ Created',`${qty} ${type} ticket${qty>1?'s':''} added.`,()=>{
+    document.querySelectorAll('#pg-admin .tb')[0].click();
+  },'View Tickets');
+}
+
+function openTix(id){
+  const t=tickets.find(x=>x.id===id);
+  const sel=t.sellerId?sellers.find(s=>s.id===t.sellerId):null;
+  document.getElementById('td-body').innerHTML=`
+    ${buildTkt(t)}
+    ${sel?`<div class="fsec" style="margin-top:12px"><label class="fl">Seller</label>
+    <div class="card nc"><div class="ct">${sel.fn} ${sel.ln}</div><div class="cs">${sel.org||''} · ${sel.email}</div></div></div>`:''}
+    ${t.tableId?`<div class="fsec" style="margin-top:6px"><label class="fl">Seating</label>
+    <div class="card nc"><div class="ct">Table ${t.tableId} · Seat ${t.seatIdx+1}</div></div></div>`:''}
+    <div class="bwrap" style="margin-top:14px">
+      ${t.status==='available'
+        ?`<button class="btn btn-gold" onclick="adminAssign('${t.id}')">Assign to Guest</button>
+          <button class="btn btn-red" onclick="delTix('${t.id}')">Delete</button>`
+        :`<button class="btn btn-red" onclick="unassignTix('${t.id}')">Unassign Guest</button>`}
+    </div><div class="spacer"></div>`;
+  document.getElementById('td-bk').onclick=()=>nav('pg-admin');
+  nav('pg-tdetail');
+}
+
+function adminAssign(id){
+  assigningId=id;
+  document.getElementById('as-preview').innerHTML=buildTkt(tickets.find(x=>x.id===id));
+  document.getElementById('as-bk').onclick=()=>nav('pg-admin');
+  document.getElementById('as-cancel').onclick=()=>nav('pg-admin');
+  ['as-fn','as-ln','as-em','as-ph','as-org'].forEach(i=>document.getElementById(i).value='');
+  nav('pg-assign');
+}
+
+function delTix(id){showModal('Delete Ticket?','Permanently removes this ticket.',()=>{tickets=tickets.filter(t=>t.id!==id);nav('pg-admin');},'Delete');}
+
+function unassignTix(id){
+  showModal('Unassign?','Ticket returns to available.',()=>{
+    const t=tickets.find(x=>x.id===id);
+    if(t.tableId){const tbl=tables[t.tableId-1];if(tbl)tbl.seats[t.seatIdx]=null;}
+    t.status='available';t.guest=null;t.tableId=null;t.seatIdx=null;
+    nav('pg-admin');
+  },'Unassign');
+}
+
+// ═══════════════════════════════════════
+// SEATING
+// ═══════════════════════════════════════
+function renderSeating(){
+  selectedTable=null;
+  document.getElementById('seat-detail').innerHTML='';
+  document.getElementById('seat-detail-label').style.display='none';
+
+  const totalSeats=N_TABLES*SEATS_PER_TABLE;
+  const takenSeats=tables.reduce((s,t)=>s+t.seats.filter(Boolean).length,0);
+  document.getElementById('seat-stats').innerHTML=[
+    {n:N_TABLES,l:'Tables',c:'var(--gold)'},
+    {n:totalSeats,l:'Total Seats',c:'var(--dim)'},
+    {n:takenSeats,l:'Filled',c:'var(--green)'},
+    {n:totalSeats-takenSeats,l:'Open',c:'var(--blue)'}
+  ].map(s=>`<div class="stb"><div class="stn" style="color:${s.c}">${s.n}</div><div class="stl">${s.l}</div></div>`).join('');
+
+  document.getElementById('floor-grid').innerHTML=tables.map(t=>{
+    const filled=t.seats.filter(Boolean).length;
+    const cls=filled===SEATS_PER_TABLE?'full':filled>0?'partial':'empty';
+    return`<div class="tbl ${cls}" id="tbl-${t.id}" onclick="selectTable(${t.id})">
+      <div class="tbl-num">${t.id}</div>
+      <div class="tbl-seats">${filled}/${SEATS_PER_TABLE}</div>
+      <div class="tbl-dot"></div>
+    </div>`;
+  }).join('');
+}
+
+function selectTable(id){
+  selectedTable=id;
+  document.querySelectorAll('.tbl').forEach(el=>el.classList.remove('selected'));
+  document.getElementById('tbl-'+id).classList.add('selected');
+  const t=tables[id-1];
+  document.getElementById('seat-detail-label').style.display='block';
+  document.getElementById('seat-detail-label').textContent=`Table ${id} · ${t.seats.filter(Boolean).length}/${SEATS_PER_TABLE} filled`;
+  document.getElementById('seat-detail').innerHTML=`
+    <div class="floor-wrap">
+      <div class="seat-grid">
+        ${t.seats.map((s,i)=>s
+          ?`<div class="seat taken" title="${s.fn} ${s.ln}">${s.fn[0]}${s.ln[0]}</div>`
+          :`<div class="seat empty" onclick="assignSeat(${id},${i})">+<br><span style="font-size:8px">Seat ${i+1}</span></div>`
+        ).join('')}
+      </div>
+    </div>`;
+}
+
+function assignSeat(tableId,seatIdx){
+  // Find an available ticket to assign to this seat
+  const avail=tickets.find(t=>t.status==='sold'&&!t.tableId&&(t.type==='Individual'||t.type==='Sponsor'));
+  if(!avail){
+    // Prompt to pick a ticket
+    showModal('Assign Seat','No unassigned sold tickets available. Sell and assign a ticket first, then place them here.',null,'OK');
+    return;
+  }
+  tables[tableId-1].seats[seatIdx]={fn:avail.guest.fn,ln:avail.guest.ln,ticketId:avail.id};
+  avail.tableId=tableId; avail.seatIdx=seatIdx;
+  selectTable(tableId); renderSeating();
+}
+
+// ═══════════════════════════════════════
+// RECONCILE (April 10)
+// ═══════════════════════════════════════
+function renderReconPreview(){
+  const fullTables=tables.filter(t=>t.seats.filter(Boolean).length===SEATS_PER_TABLE);
+  const partial=tables.filter(t=>{const f=t.seats.filter(Boolean).length;return f>0&&f<SEATS_PER_TABLE;});
+  const unseated=tickets.filter(t=>t.status==='sold'&&!t.tableId&&(t.type==='Individual'||t.type==='Sponsor'));
+  document.getElementById('recon-preview').innerHTML=`
+    <div class="clist">
+      <div class="card nc"><div class="crow"><div><div class="ct">✅ Full Tables</div><div class="cs">Will be kept exactly as-is</div></div><div class="badge b-green">${fullTables.length}</div></div></div>
+      <div class="card nc"><div class="crow"><div><div class="ct">⚠️ Partial Tables</div><div class="cs">Will receive bundled guests</div></div><div class="badge b-gold">${partial.length}</div></div></div>
+      <div class="card nc"><div class="crow"><div><div class="ct">👤 Unplaced Guests</div><div class="cs">Will be moved to open seats</div></div><div class="badge b-blue">${unseated.length}</div></div></div>
+    </div>`;
+}
+
+function runReconcile(){
+  const unplaced=tickets.filter(t=>t.status==='sold'&&!t.tableId&&(t.type==='Individual'||t.type==='Sponsor'));
+  let moved=0;
+  for(const tix of unplaced){
+    // Find a table with open seats
+    const tbl=tables.find(t=>t.seats.filter(Boolean).length<SEATS_PER_TABLE);
+    if(!tbl)break;
+    const seatIdx=tbl.seats.findIndex(s=>!s);
+    tbl.seats[seatIdx]={fn:tix.guest.fn,ln:tix.guest.ln,ticketId:tix.id};
+    tix.tableId=tbl.id; tix.seatIdx=seatIdx;
+    moved++;
+  }
+  document.getElementById('recon-result').innerHTML=`
+    <div class="recon-card" style="margin-top:12px">
+      <div class="recon-title">✅ Reconciliation Complete</div>
+      <div class="recon-sub">${moved} guest${moved!==1?'s':''} placed into open seats.<br>All full tables preserved. Floor plan updated.</div>
+    </div>
+    <div class="bwrap"><button class="btn btn-ghost" onclick="nav('pg-seating')">View Floor Plan ›</button></div>`;
+  logToSheets({event:'reconcile',moved,timestamp:new Date().toISOString()});
+}
+
+// ═══════════════════════════════════════
+// REGISTER SELLER
+// ═══════════════════════════════════════
+function registerSeller(){
+  const fn=document.getElementById('reg-fn').value.trim();
+  const ln=document.getElementById('reg-ln').value.trim();
+  const org=document.getElementById('reg-org').value.trim();
+  const ph=document.getElementById('reg-ph').value.trim();
+  const em=document.getElementById('reg-em').value.trim();
+  if(!fn||!ln){alert('Please enter your first and last name.');return;}
+  const sid='SEL'+String(SC++).padStart(3,'0');
+  const ids=[];
+  for(let i=0;i<10;i++){const t=mkTix('Individual',sid);tickets.push(t);ids.push(t.id);}
+  sellers.push({id:sid,fn,ln,org,ph,email:em});
+  activeSeller=sid;
+  logToSheets({event:'seller_register',name:`${fn} ${ln}`,org,email:em,tickets:ids.join(','),timestamp:new Date().toISOString()});
+  rdxSaveSeller({fn,ln,org,ph,email:em});
+  showSuccess('🎉',`Welcome, ${fn}!`,`You're registered. 10 tickets assigned to you.`,
+    '',`<div style="background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);border-radius:10px;padding:11px 13px;font-size:11px;color:var(--gold)">🎟 Your IDs: ${ids.join(' · ')}</div>`,
+    'Go to Dashboard',()=>nav('pg-seller'));
+}
+
+// ═══════════════════════════════════════
+// SELLER DASHBOARD
+// ═══════════════════════════════════════
+function renderSeller(){
+  if(activeSeller){
+    document.getElementById('sell-login').style.display='none';
+    document.getElementById('sell-dash').style.display='block';
+    renderSellerDash();
+  }else{
+    document.getElementById('sell-login').style.display='block';
+    document.getElementById('sell-dash').style.display='none';
+  }
+}
+
+function selLogin(){
+  const name=document.getElementById('sl-name').value.trim().toLowerCase();
+  const s=sellers.find(x=>x.ln.toLowerCase()===name);
+  if(!s){alert('No seller found. Please register first.');return;}
+  activeSeller=s.id;
+  document.getElementById('sell-login').style.display='none';
+  document.getElementById('sell-dash').style.display='block';
+  renderSellerDash();
+}
+
+function renderSellerDash(){
+  const s=sellers.find(x=>x.id===activeSeller);if(!s)return;
+  const myT=tickets.filter(t=>t.sellerId===s.id);
+  const sold=myT.filter(t=>t.status==='sold').length;
+  document.getElementById('allot-card').innerHTML=`
+    <div class="allotrow"><div><div class="allotlbl">Seller</div><div style="font-size:15px;font-weight:700;margin-top:2px">${s.fn} ${s.ln}${s.org?' · '+s.org:''}</div></div><div class="allotval">${sold}/${myT.length}</div></div>
+    <div class="allotbar"><div class="allotfill" style="width:${myT.length?sold/myT.length*100:0}%"></div></div>
+    <div style="display:flex;justify-content:space-between;margin-top:5px">
+      <div style="font-size:10px;color:var(--dim)">${myT.length-sold} remaining</div>
+      <div style="font-size:10px;color:var(--gold)">$${(sold*150).toLocaleString()} generated</div>
+    </div>`;
+  renderSAvail(); renderSSold();
+}
+
+function sTab(btn,id){
+  document.querySelectorAll('#sell-dash .tb').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.getElementById('st-avail').style.display=id==='st-avail'?'block':'none';
+  document.getElementById('st-sold').style.display=id==='st-sold'?'block':'none';
+}
+
+function renderSAvail(){
+  const s=sellers.find(x=>x.id===activeSeller);
+  const avail=tickets.filter(t=>t.sellerId===s.id&&t.status==='available');
+  const el=document.getElementById('s-avail');
+  if(!avail.length){el.innerHTML='<div class="empty">🎉 All tickets sold!<br>Amazing work.</div>';return;}
+  el.innerHTML=avail.map(t=>`
+    <div class="card fade" onclick="startAssign('${t.id}')">
+      <div class="crow">
+        <div><div class="ct">${ICONS[t.type]} ${t.type}</div><div class="cs">ID: ${t.id}</div></div>
+        <div style="text-align:right"><div style="font-size:16px;font-weight:800;color:var(--gold)">$${PRICES[t.type]}</div><div style="font-size:10px;color:var(--blue);margin-top:2px">Tap to sell</div></div>
+      </div>
+    </div>`).join('');
+}
+
+function renderSSold(){
+  const s=sellers.find(x=>x.id===activeSeller);
+  const sold=tickets.filter(t=>t.sellerId===s.id&&t.status==='sold');
+  const el=document.getElementById('s-sold');
+  if(!sold.length){el.innerHTML='<div class="empty">No sales yet.<br>You got this!</div>';return;}
+  el.innerHTML=sold.map(t=>`
+    <div class="card nc">
+      <div class="crow"><div><div class="ct">${t.guest.fn} ${t.guest.ln}</div><div class="cs">${t.id}${t.tableId?' · Table '+t.tableId:''}${t.guest.org?' · '+t.guest.org:''}</div></div><div class="badge b-green">✓</div></div>
+    </div>`).join('');
+}
+
+function startAssign(id){
+  assigningId=id;
+  document.getElementById('as-preview').innerHTML=buildTkt(tickets.find(x=>x.id===id));
+  document.getElementById('as-bk').onclick=()=>nav('pg-seller');
+  document.getElementById('as-cancel').onclick=()=>nav('pg-seller');
+  ['as-fn','as-ln','as-em','as-ph','as-org'].forEach(i=>document.getElementById(i).value='');
+  nav('pg-assign');
+}
+
+function doAssign(){
+  const fn=document.getElementById('as-fn').value.trim();
+  const ln=document.getElementById('as-ln').value.trim();
+  const em=document.getElementById('as-em').value.trim();
+  const ph=document.getElementById('as-ph').value.trim();
+  const org=document.getElementById('as-org').value.trim();
+  if(!fn||!ln||!em){alert('Please fill in name and email.');return;}
+  const t=tickets.find(x=>x.id===assigningId);
+  t.status='sold'; t.guest={fn,ln,email:em,phone:ph,org,via:'seller'};
+  autoSeat(t);
+  logToSheets({event:'ticket_sold',ticketId:t.id,type:t.type,fn,ln,email:em,org,via:'seller',tableId:t.tableId,timestamp:new Date().toISOString()});
+  rdxSaveTicket(t,{fn,ln,email:em,phone:ph,org},'seller').then(dbId=>{if(dbId&&t.tableId)rdxSaveSeat(t.id,dbId,t.tableId,t.seatIdx+1);});
+  showSuccess('✅',`${fn} Confirmed!`,`Ticket ${t.id} assigned.${t.tableId?' Table '+t.tableId+', Seat '+(t.seatIdx+1)+' reserved.':''}`,buildTkt(t),'','Done',()=>nav('pg-seller'));
+}
+
+// ═══════════════════════════════════════
+// GUEST
+// ═══════════════════════════════════════
+function gTab(btn,id){
+  document.querySelectorAll('#pg-guest .tb').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  ['gt-find','gt-buy','gt-ap'].forEach(t=>document.getElementById(t).style.display=t===id?'flex':'none');
+}
+
+function findTicket(){
+  const name=document.getElementById('g-search').value.trim().toLowerCase();
+  if(!name){alert('Enter your last name.');return;}
+  const found=tickets.find(t=>t.guest&&t.guest.ln.toLowerCase()===name);
+  const vipFound=couches.find(c=>c.guest&&c.guest.ln&&c.guest.ln.toLowerCase()===name);
+  if(found){
+    document.getElementById('g-result').innerHTML=`<div style="padding:12px 0 0">${buildTkt(found)}</div>`;
+  }else if(vipFound){
+    document.getElementById('g-result').innerHTML=`<div style="padding:12px 0 0">${buildVIPCard(vipFound)}</div>`;
+  }else{
+    document.getElementById('g-result').innerHTML=`<div class="empty">No ticket found for "${name}".<br>Try the Buy Ticket tab.</div>`;
+  }
+}
+
+function pickType(type,price){
+  buyType=type; buyPrice=price;
+  document.querySelectorAll('.tycard').forEach(c=>{c.classList.remove('sel','sel-ap','sel-vip');c.querySelector('.tychk').textContent='';});
+  const el=document.getElementById('ty-'+type); el.classList.add('sel'); el.querySelector('.tychk').textContent='✓';
+  document.getElementById('btn-ca').textContent=`Pay with Cash App · $${price.toLocaleString()}`;
+  document.getElementById('btn-pp').textContent=`Pay with PayPal · $${price.toLocaleString()}`;
+  document.getElementById('pp-done').style.display='none';
+  document.getElementById('ca-done').style.display='none';
+}
+
+function pickPay(m){
+  payMethod=m;
+  document.getElementById('pm-ca').className='pmopt'+(m==='ca'?' sel-ca':'');
+  document.getElementById('pm-pp').className='pmopt'+(m==='pp'?' sel-pp':'');
+  document.getElementById('btn-ca').style.display=m==='ca'?'flex':'none';
+  document.getElementById('btn-pp').style.display=m==='pp'?'flex':'none';
+  document.getElementById('pp-done').style.display='none';
+  document.getElementById('ca-done').style.display='none';
+}
+
+function getBuyInfo(){
+  const name=document.getElementById('b-name').value.trim();
+  const email=document.getElementById('b-email').value.trim();
+  const org=document.getElementById('b-org').value.trim();
+  if(!name){alert('Please enter your full name.');return null;}
+  if(!email){alert('Please enter your email.');return null;}
+  return{name,email,org};
+}
+
+function payCA(){
+  const v=getBuyInfo();if(!v)return;
+  save('sb_n',v.name);save('sb_e',v.email);save('sb_o',v.org);save('sb_t',buyType);save('sb_v','ca');
+  window.open(CASHAPP,'_blank');
+  document.getElementById('btn-ca').style.display='none';
+  document.getElementById('ca-done').style.display='block';
+}
+
+function payPP(){
+  const v=getBuyInfo();if(!v)return;
+  save('sb_n',v.name);save('sb_e',v.email);save('sb_o',v.org);save('sb_t',buyType);save('sb_v','pp');
+  window.open(PAYPAL[buyType]||PAYPAL.Individual,'_blank');
+  document.getElementById('btn-pp').style.display='none';
+  document.getElementById('pp-done').style.display='block';
+}
+
+function payAP(){
+  const name=document.getElementById('ap-name').value.trim();
+  const email=document.getElementById('ap-email').value.trim();
+  if(!name){alert('Enter your name.');return;}
+  if(!email){alert('Enter your email.');return;}
+  save('sb_n',name);save('sb_e',email);save('sb_o','');save('sb_t','After Party');save('sb_v','ca');
+  window.open(CASHAPP,'_blank');
+  document.getElementById('btn-ap').style.display='none';
+  document.getElementById('ap-done').style.display='block';
+}
+
+function confirmPay(via){
+  const rawName=sessionStorage.getItem('sb_n')||'';
+  const email=sessionStorage.getItem('sb_e')||'';
+  const org=sessionStorage.getItem('sb_o')||'';
+  const type=sessionStorage.getItem('sb_t')||buyType;
+  const parts=rawName.trim().split(' ');
+  const fn=parts[0],ln=parts.slice(1).join(' ')||'—';
+  let t=tickets.find(x=>x.type===type&&x.status==='available'&&!x.sellerId);
+  if(!t){t=mkTix(type);tickets.push(t);}
+  t.status='sold'; t.guest={fn,ln,email,phone:'',org,via};
+  autoSeat(t);
+  ['sb_n','sb_e','sb_o','sb_t','sb_v'].forEach(k=>sessionStorage.removeItem(k));
+  logToSheets({event:'ticket_sold',ticketId:t.id,type,fn,ln,email,org,via,tableId:t.tableId,timestamp:new Date().toISOString()});
+  rdxSaveTicket(t,{fn,ln,email,phone:'',org},via==='ca'?'cashapp':'paypal').then(dbId=>{if(dbId&&t.tableId)rdxSaveSeat(t.id,dbId,t.tableId,t.seatIdx+1);});
+  const isAP=type==='After Party';
+  showSuccess(isAP?'🎵':'🎟',isAP?`Party time, ${fn}!`:`You're In, ${fn}!`,
+    `Payment received via ${via==='ca'?'Cash App':'PayPal'}. See you April 11!${t.tableId?' Your seat: Table '+t.tableId+', Seat '+(t.seatIdx+1)+'.':''}`,
+    buildTkt(t),'','Done',()=>nav('pg-home'));
+}
+
+// ═══════════════════════════════════════
+// VIP COUCH
+// ═══════════════════════════════════════
+function renderCouches(){
+  document.getElementById('couch-list').innerHTML=couches.map(c=>`
+    <div class="couch-card${c.guest?' sold':''}">
+      <div class="couch-num">${c.label}</div>
+      <div class="couch-name">${c.guest?c.guest.fn+' '+c.guest.ln:'Available'}</div>
+      <div class="couch-sub">${c.guest?c.guest.org||c.guest.email:'Reserved seating · Analog Room'}</div>
+      ${c.guest?'<div class="badge b-vip" style="margin-top:6px;display:inline-block">✓ Reserved</div>':''}
+    </div>`).join('');
+  const avail=couches.filter(c=>!c.guest).length;
+  document.getElementById('btn-vip').textContent=avail?`🛋️ Reserve My VIP Couch · $500 (${avail} left)`:'🛋️ Sold Out';
+  document.getElementById('btn-vip').disabled=!avail;
+}
+
+function payVIP(){
+  const name=document.getElementById('vip-name').value.trim();
+  const email=document.getElementById('vip-email').value.trim();
+  if(!name){alert('Enter your name.');return;}
+  if(!email){alert('Enter your email.');return;}
+  save('sb_n',name);save('sb_e',email);save('sb_o',document.getElementById('vip-org').value.trim());save('sb_t','VIP Couch');save('sb_v','ca');
+  window.open(CASHAPP,'_blank');
+  document.getElementById('btn-vip').style.display='none';
+  document.getElementById('vip-done').style.display='block';
+}
+
+function confirmVIP(){
+  const rawName=sessionStorage.getItem('sb_n')||'';
+  const email=sessionStorage.getItem('sb_e')||'';
+  const org=sessionStorage.getItem('sb_o')||'';
+  const couch=couches.find(c=>!c.guest);
+  if(!couch){alert('Sorry, all VIP couches are sold out.');return;}
+  const parts=rawName.trim().split(' ');
+  const fn=parts[0],ln=parts.slice(1).join(' ')||'—';
+  couch.guest={fn,ln,email,org};
+  ['sb_n','sb_e','sb_o','sb_t','sb_v'].forEach(k=>sessionStorage.removeItem(k));
+  logToSheets({event:'vip_sold',couch:couch.label,fn,ln,email,org,timestamp:new Date().toISOString()});
+  rdxSaveVIP(couch.label,{fn,ln,email,phone:'',org},'');
+  showSuccess('🛋️',`VIP Reserved, ${fn}!`,`${couch.label} at Analog Room is yours. See you at the after party!`,buildVIPCard(couch),'','Done',()=>nav('pg-home'));
+}
+
+function buildVIPCard(c){
+  return`<div class="tktcard vip fade">
+    <div class="tkt-ev">VIP After Party · Analog Room · 9 PM</div>
+    <div class="tkt-name">${c.guest?c.guest.fn+' '+c.guest.ln:'—'}</div>
+    <div class="tkt-email">${c.guest?c.guest.email:''}</div>
+    <hr class="tkt-div">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end">
+      <div class="tkt-meta">
+        <div class="tkt-mi"><label>Type</label><span>🛋️ VIP Couch</span></div>
+        <div class="tkt-mi"><label>Couch</label><span>${c.label}</span></div>
+        <div class="tkt-mi"><label>Date</label><span>Apr 11</span></div>
+      </div>
+      <div class="tkt-qr"><div class="qrpat"></div></div>
+    </div>
+    <div class="tkt-foot"><div class="tkt-venue">Analog Room · Nashville</div><div class="badge b-vip">✓ VIP</div></div>
+  </div>`;
+}
+
+// ═══════════════════════════════════════
+// AUTO SEAT
+// ═══════════════════════════════════════
+function autoSeat(t){
+  if(t.type==='After Party'||t.type==='VIP Couch')return;
+  if(t.type==='Table'){
+    // Assign all 10 seats of an empty table
+    const tbl=tables.find(t=>t.seats.filter(Boolean).length===0);
+    if(tbl){for(let i=0;i<10;i++)tbl.seats[i]={fn:t.guest.fn,ln:t.guest.ln,ticketId:t.id};t.tableId=tbl.id;t.seatIdx=0;}
+    return;
+  }
+  // Find first available seat
+  for(const tbl of tables){
+    const idx=tbl.seats.findIndex(s=>!s);
+    if(idx!==-1){tbl.seats[idx]={fn:t.guest.fn,ln:t.guest.ln,ticketId:t.id};t.tableId=tbl.id;t.seatIdx=idx;return;}
+  }
+}
+
+// ═══════════════════════════════════════
+// GOOGLE SHEETS INTEGRATION
+// ═══════════════════════════════════════
+function logToSheets(data){
+  const url=gsUrl||localStorage.getItem('gs_url')||'';
+  if(!url)return;
+  fetch(url,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).catch(()=>{});
+}
+
+function saveGSUrl(){
+  const url=document.getElementById('gs-url-input').value.trim();
+  if(!url){alert('Please paste your Apps Script URL.');return;}
+  gsUrl=url; localStorage.setItem('gs_url',url);
+  closeGSModal();
+  alert('✅ Google Sheets connected! All future sales will auto-log.');
+}
+function closeGSModal(){document.getElementById('gs-modal').classList.remove('on');}
+
+// ═══════════════════════════════════════
+// QR CODE
+// ═══════════════════════════════════════
+function renderQR(){
+  const url=LIVE_URL;
+  document.getElementById('qr-url-lbl').textContent=url;
+  drawQR(url);
+}
+
+function drawQR(text){
+  const canvas=document.getElementById('qr-canvas');
+  const ctx=canvas.getContext('2d');
+  const size=200; canvas.width=canvas.height=size;
+  ctx.fillStyle='#ffffff'; ctx.fillRect(0,0,size,size);
+  function corner(x,y){ctx.fillStyle='#000';ctx.fillRect(x,y,56,56);ctx.fillStyle='#fff';ctx.fillRect(x+8,y+8,40,40);ctx.fillStyle='#000';ctx.fillRect(x+16,y+16,24,24);}
+  corner(8,8);corner(136,8);corner(8,136);
+  let h=0;for(let i=0;i<text.length;i++)h=(h*31+text.charCodeAt(i))&0xFFFFFF;
+  ctx.fillStyle='#000';
+  for(let r=0;r<25;r++){for(let c=0;c<25;c++){
+    const skip=(r<8&&c<8)||(r<8&&c>16)||(r>16&&c<8);
+    if(!skip){h=(h*1664525+1013904223)&0xFFFFFFFF;if(h&1)ctx.fillRect(8+c*8,8+r*8,6,6);}
+  }}
+  ctx.fillStyle='#C9A84C';
+  ctx.beginPath();
+  if(ctx.roundRect)ctx.roundRect(80,80,40,40,8);else ctx.rect(80,80,40,40);
+  ctx.fill();
+  ctx.fillStyle='#000';ctx.font='bold 22px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('👟',100,102);
+}
+
+function copyLink(){navigator.clipboard.writeText(LIVE_URL).then(()=>alert('✅ Link copied!\n'+LIVE_URL));}
+function shareApp(){
+  if(navigator.share)navigator.share({title:'G Men Sneaker Ball 2026',text:'Register as a seller — get 10 tickets instantly! Support kids\' literacy in Nashville.',url:LIVE_URL});
+  else copyLink();
+}
+
+// ═══════════════════════════════════════
+// SOCIAL
+// ═══════════════════════════════════════
+function socTab(btn,id){
+  document.querySelectorAll('#pg-social .tb').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  ['sc-ig','sc-fb','sc-tw','sc-txt'].forEach(s=>document.getElementById(s).style.display=s===id?'block':'none');
+}
+
+function cpAd(id){
+  const text=document.getElementById(id).textContent;
+  navigator.clipboard.writeText(text).then(()=>{
+    const btn=document.querySelector(`[onclick="cpAd('${id}')"]`);
+    btn.textContent='✅ Copied!'; btn.style.background='var(--green)';
+    setTimeout(()=>{btn.textContent='Copy'; btn.style.background='var(--gold)';},2000);
+  });
+}
+
+function openPlat(p){
+  const msg=encodeURIComponent(`👟 G Men of Nashville 3rd Annual Sneaker Ball — April 11, The Hutton Hotel Nashville! Dress up, show out, support kids' literacy. Cash App: $GmenofNashville #SneakerBall2026`);
+  const url=encodeURIComponent(LIVE_URL);
+  const links={ig:'https://instagram.com',fb:`https://www.facebook.com/sharer/sharer.php?u=${url}`,tw:`https://twitter.com/intent/tweet?text=${msg}&url=${url}`,sms:`sms:?body=${msg}`};
+  window.open(links[p],'_blank');
+}
+
+// ═══════════════════════════════════════
+// EXPORT
+// ═══════════════════════════════════════
+function exportCSV(){
+  const rows=[['ID','Type','Status','First','Last','Email','Phone','Org','Via','Table','Seat']];
+  tickets.forEach(t=>rows.push([t.id,t.type,t.status,t.guest?t.guest.fn:'',t.guest?t.guest.ln:'',t.guest?t.guest.email:'',t.guest?t.guest.phone:'',t.guest?t.guest.org:'',t.guest?t.guest.via:'',t.tableId||'',t.seatIdx!=null?t.seatIdx+1:'']));
+  const a=document.createElement('a');
+  a.href='data:text/csv;charset=utf-8,'+encodeURIComponent(rows.map(r=>r.map(v=>`"${v}"`).join(',')).join('\n'));
+  a.download='SneakerBall2026_Guests.csv'; a.click();
+}
+
+function copyGuests(){
+  const sold=tickets.filter(t=>t.status==='sold'&&t.guest);
+  if(!sold.length){alert('No guests yet.');return;}
+  navigator.clipboard.writeText(sold.map(t=>`${t.guest.fn} ${t.guest.ln} · ${t.id}${t.tableId?' · Table '+t.tableId+' Seat '+(t.seatIdx+1):''} · ${t.guest.via}`).join('\n')).then(()=>alert(`✅ Copied ${sold.length} guests!`));
+}
+
+// ═══════════════════════════════════════
+// TICKET VISUAL
+// ═══════════════════════════════════════
+function buildTkt(t){
+  const name=t.guest?`${t.guest.fn} ${t.guest.ln}`:'Unassigned';
+  const email=t.guest?t.guest.email:'—';
+  const isAP=t.type==='After Party'; const isVIP=t.type==='VIP Couch';
+  const via=t.guest&&t.guest.via?` · <span style="color:${t.guest.via==='ca'?'var(--ca)':'#009cde'}">${t.guest.via==='ca'?'Cash App ✓':'PayPal ✓'}</span>`:'';
+  return`<div class="tktcard${isAP?' ap':isVIP?' vip':''} fade">
+    <div class="tkt-ev">${isAP?'After Party · Analog Room · 9 PM':isVIP?'VIP Couch · Analog Room · 9 PM':'3rd Annual · G Men of Nashville'}</div>
+    <div class="tkt-name">${name}</div><div class="tkt-email">${email}</div>
+    <hr class="tkt-div">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end">
+      <div class="tkt-meta">
+        <div class="tkt-mi"><label>Type</label><span>${ICONS[t.type]||'🎟'} ${t.type}</span></div>
+        <div class="tkt-mi"><label>ID</label><span>${t.id}</span></div>
+        ${t.tableId?`<div class="tkt-mi"><label>Table</label><span>${t.tableId} · Seat ${t.seatIdx+1}</span></div>`:''}
+        <div class="tkt-mi"><label>Date</label><span>Apr 11</span></div>
+      </div>
+      <div class="tkt-qr"><div class="qrpat"></div></div>
+    </div>
+    <div class="tkt-foot"><div class="tkt-venue">${isAP||isVIP?'Analog Room':'The Hutton Hotel'} · Nashville${via}</div><div class="badge ${t.status==='sold'?'b-green':'b-blue'}">${t.status==='sold'?'✓ Confirmed':'Pending'}</div></div>
+  </div>`;
+}
+
+// ═══════════════════════════════════════
+// SUCCESS
+// ═══════════════════════════════════════
+function showSuccess(ico,title,sub,tkt,extra,btnLabel,btnAction){
+  document.getElementById('suc-ico').textContent=ico;
+  document.getElementById('suc-title').textContent=title;
+  document.getElementById('suc-sub').textContent=sub;
+  document.getElementById('suc-tkt').innerHTML=tkt||'';
+  document.getElementById('suc-extra').innerHTML=extra||'';
+  document.getElementById('suc-btn').textContent=btnLabel||'Done';
+  document.getElementById('suc-btn').onclick=btnAction||function(){nav('pg-home');};
+  nav('pg-success');
+}
+
+// ═══════════════════════════════════════
+// MODAL
+// ═══════════════════════════════════════
+function showModal(t,s,cb,btn){
+  document.getElementById('m-title').textContent=t;
+  document.getElementById('m-sub').textContent=s;
+  document.getElementById('m-ok').textContent=btn||'OK';
+  modalCb=cb;
+  document.getElementById('modal').classList.add('on');
+  document.getElementById('m-ok').onclick=()=>{closeModal();if(modalCb)modalCb();};
+}
+function closeModal(){document.getElementById('modal').classList.remove('on');}
+
+// ═══════════════════════════════════════
+// HELPERS
+// ═══════════════════════════════════════
+function save(k,v){try{sessionStorage.setItem(k,v);}catch(e){}}
+if(window.location.hash==='#register')nav('pg-register');
+
+// Init default pay method
+pickPay('ca');
+</script>
+
+<!-- GOOGLE SHEETS SETUP NOTE (in HTML comment for README) 
+=================================================================
+GOOGLE SHEETS APPS SCRIPT — paste this into Extensions > Apps Script:
+
+function doPost(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet();
+  var data = JSON.parse(e.postData.contents);
+  var tabName = data.event === 'vip_sold' ? 'VIP' : data.event === 'seller_register' ? 'Sellers' : 'Tickets';
+  var tab = sheet.getSheetByName(tabName) || sheet.insertSheet(tabName);
+  if (tab.getLastRow() === 0) {
+    tab.appendRow(Object.keys(data));
+  }
+  tab.appendRow(Object.values(data));
+  return ContentService.createTex
